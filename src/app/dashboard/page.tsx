@@ -1,6 +1,7 @@
 import CommunityCard from "@/components/CommunityCard/CommunityCard";
 import { CreateCard  } from "@/components/CreateReleaseCard/CreateRelease";
 import { ManageCard } from "@/components/ManageReleaseCard/ManageRelease";
+import StatisticsCard from "@/components/StatisticsCard/StatisticsCard";
 import AlbumsCard from "@/components/TopAlbumsCard/AlbumsCard";
 
 const Dashboard = () => {
@@ -9,7 +10,8 @@ const Dashboard = () => {
             {/* <CreateCard />
             <ManageCard />
             <CommunityCard /> */}
-            <AlbumsCard />
+            {/* <AlbumsCard /> */}
+            <StatisticsCard/>
         </div>
      );
 }

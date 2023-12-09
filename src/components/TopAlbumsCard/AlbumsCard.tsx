@@ -63,7 +63,7 @@ const AlbumsCard = () => {
                 </div>
             </div>
             {/* Scrollable Albums */}
-            <div className="flex flex-row overflow-x-auto mt-4 pb-4 gap-[2vw]">
+            <div className="flex flex-row overflow-x-scroll scroll-smooth mt-4 pb-4 gap-[2vw]">
                 {Array.from(Array(10).keys()).map((index) => (
                     <div
                         key={index}
