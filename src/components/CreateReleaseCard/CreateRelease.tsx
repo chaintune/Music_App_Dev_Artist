@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 
-export const CreateCard = (): JSX.Element => {
+const CreateCard = (): JSX.Element => {
   return (
     <div className="w-[22vw] h-[20vw] backdrop-blur-[24px] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-col justify-end gap-2 items-start pt-4 pb-2 px-2 rounded-[24px]">
       <div className="text-xl font-['Aileron'] font-light leading-[28px] text-white ml-4">
@@ -26,7 +26,7 @@ export const CreateCard = (): JSX.Element => {
         </div>
       </div>
     </div>
-
   );
 };
 
+export default CreateCard;

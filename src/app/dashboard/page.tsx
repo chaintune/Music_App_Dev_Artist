@@ -1,10 +1,5 @@
-import CommunityCard from "@/components/CommunityCard/CommunityCard";
-import { CreateCard } from "@/components/CreateReleaseCard/CreateRelease";
-import EarningsCard from "@/components/EarningsCard/EarningsCard";
-import Layout from "@/components/Layout/Layout";
-import { ManageCard } from "@/components/ManageReleaseCard/ManageRelease";
-import StatisticsCard from "@/components/StatisticsCard/StatisticsCard";
-import AlbumsCard from "@/components/TopAlbumsCard/AlbumsCard";
+import { AlbumsCard, CommunityCard, CreateCard, EarningsCard, Layout, ManageCard, StatisticsCard } from "@/components";
+
 
 const Dashboard = () => {
     return (
