@@ -88,7 +88,6 @@ const EarningsCard = () => {
                 </div>
             </div>
         </div>
-
     );
 }
 
