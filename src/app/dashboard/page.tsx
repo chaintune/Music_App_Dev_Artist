@@ -10,11 +10,11 @@ const Dashboard = () => {
     return (
         <Layout>
             <StatisticsCard />
-            <div className="flex flex-row gap-[1vw] mx-[2vw] mt-[1vw]">
+            <div className="flex flex-row gap-[1vw]">
                 <CreateCard />
                 <EarningsCard />
             </div>
-            <div className="flex flex-row gap-[1vw] mx-[2vw] my-[1vw]">
+            <div className="flex flex-row gap-[1vw]">
                 <AlbumsCard />
                 <CommunityCard />
                 <ManageCard />

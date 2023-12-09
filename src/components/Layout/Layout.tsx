@@ -9,7 +9,7 @@ const Layout = ({ children }: LayoutProps) => {
             <div className="bg-zinc-950 h-screen w-screen overflow-y-scroll">
                 <Navbar />
                 {/* <SideBar /> */} 
-                <div className="mt-[8vw]">
+                <div className="mt-[8vw] flex flex-col gap-[1vw] mx-[2vw]">
                 {children}
                 </div>
             </div>
