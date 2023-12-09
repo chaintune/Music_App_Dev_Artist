@@ -5,7 +5,7 @@ import { Fragment } from "react";
 const Layout = ({ children }: LayoutProps) => {
     return (
         <Fragment>
-            <div className="bg-zinc-950 h-screen w-screen overflow-y-scroll">
+            <div className="bg-zinc-950 h-screen w-screen overflow-y-scroll" style={{padding:`0 40px`}}>
                 {/* <NavBar />
                 <SideBar /> */}
                 {children}
