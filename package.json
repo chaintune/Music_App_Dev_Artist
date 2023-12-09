@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@perawallet/connect": "^1.3.4",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.3",
     "next": "13.3.4",
     "react": "^18",
     "react-dom": "^18"
