@@ -1,3 +1,4 @@
+import CommunityCard from "@/components/CommunityCard/CommunityCard";
 import { CreateCard  } from "@/components/CreateReleaseCard/CreateRelease";
 import { ManageCard } from "@/components/ManageReleaseCard/ManageRelease";
 
@@ -6,6 +7,7 @@ const Dashboard = () => {
         <div className="h-screen w-screen flex items-center justify-center">
             <CreateCard />
             <ManageCard />
+            <CommunityCard />
         </div>
      );
 }
