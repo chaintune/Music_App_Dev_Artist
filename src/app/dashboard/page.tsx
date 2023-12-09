@@ -1,9 +1,11 @@
-import { ReleaseCard } from "@/components/ReleaseCard/ReleaseCard";
+import { CreateCard  } from "@/components/CreateReleaseCard/CreateRelease";
+import { ManageCard } from "@/components/ManageReleaseCard/ManageRelease";
 
 const Dashboard = () => {
     return ( 
         <div className="h-screen w-screen flex items-center justify-center">
-            <ReleaseCard />
+            <CreateCard />
+            <ManageCard />
         </div>
      );
 }
