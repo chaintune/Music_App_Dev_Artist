@@ -6,3 +6,6 @@ export { default as CreateCard } from './CreateReleaseCard/CreateRelease';
 export { default as Layout } from './Layout/Layout';
 export { default as AlbumsCard } from './TopAlbumsCard/AlbumsCard';
 export { default as EarningsCard } from './EarningsCard/EarningsCard';
+export { default as TrackDetails } from './TrackDetails/TrackDetails';
+export { default as CoverArt } from './CoverArt/CoverArt';
+export { default as ReleaseType } from './ReleaseType/ReleaseType';
