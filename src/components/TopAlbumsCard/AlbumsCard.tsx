@@ -26,7 +26,7 @@ const AlbumsCard = () => {
                     {/* Streams Dropdown */}
                     <div
                         onClick={toggleStreamsDropdown}
-                        className="px-[1vw] border-white/6 backdrop-blur-[24px] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-center pt-3 gap-10 w-3/4 h-12 items-start border rounded-[24px] relative"
+                        className="px-[1vw] border-white/6 backdrop-blur-[24px] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-center pt-3 gap-10 w-3/4 h-12 items-start hover:border rounded-[24px] relative"
                     >
                         <div
                             className="text-sm font-['Aileron'] font-light leading-[20px] text-white cursor-pointer"
