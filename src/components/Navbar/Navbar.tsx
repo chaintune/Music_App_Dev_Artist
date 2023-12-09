@@ -1,5 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+'use client'
+
+import { WalletManager } from "@/utils/connect_wallet";
+
 const Navbar = () => {
+  
     return (
         <div id="RootRoot" className="flex bg-zinc-950 py-[1.5vw] px-[1.5vw] fixed z-10 flex-row justify-between w-full items-start">
             <div className="flex flex-row gap-6 w-2/5 items-start">
