@@ -17,7 +17,7 @@ const NFTCollection = () => {
             <div className="w-5 h-5 left-[42px] top-[248px] absolute" />
         </div>
         
-        <NextImage className="w-60 h-60 left-[16px] top-[216px] absolute rounded-2xl  backdrop-blur-[120px]" src={cover1}/>
+        <NextImage className="w-60 h-60 left-[16px] top-[216px] absolute rounded-2xl  backdrop-blur-[120px]" alt="" src={cover1}/>
         <div className="left-[288px] top-[270px] absolute text-white text-5xl font-light font-['Aileron'] leading-[56px]">Mother Nature</div>
         <div className="left-[288px] top-[338px] absolute text-white text-base font-normal font-['Aileron'] leading-snug">2019 • 54 songs</div>
         <div className="px-3 py-1.5 left-[288px] top-[226px] absolute bg-white bg-opacity-10 rounded-[30px] justify-center items-center gap-2.5 inline-flex">
@@ -26,19 +26,19 @@ const NFTCollection = () => {
         <div className="w-16 h-16 left-[204px] top-[266px] absolute">
             <div className="w-16 h-16 left-0 top-0 absolute bg-white rounded-full" />
             <div className="w-8 h-8 left-[20px] top-[20px] absolute">
-                <NextImage src={playArrow} className='w-6 h-6'/>
+                <NextImage src={playArrow} alt="" className='w-6 h-6'/>
             </div>
         </div>
         <div className="w-12 h-12 left-[948px] top-[218px] absolute">
             <div className="w-12 h-12 left-0 top-0 absolute bg-gradient-to-b from-zinc-900 to-neutral-800 rounded-full border border-white border-opacity-5 backdrop-blur-[120px]" />
             <div className="w-6 h-6 left-[12px] top-[12px] absolute opacity-60" >
-                <NextImage src={dots}/>
+                <NextImage src={dots} alt=""/>
             </div>
         </div>
         <div className="w-12 h-12 left-[892px] top-[218px] absolute">
             <div className="w-12 h-12 left-0 top-0 absolute bg-gradient-to-b from-zinc-900 to-neutral-800 rounded-full border border-white border-opacity-5 backdrop-blur-[120px]" />
             <div className="w-6 h-6 left-[12px] top-[13px] absolute opacity-60" >
-                <NextImage src={pocket}/>
+                <NextImage src={pocket} alt=""/>
             </div>
         </div>
         <div className="h-[354px] left-[280px] top-[388px] absolute flex-col justify-start items-start inline-flex overflow-auto">

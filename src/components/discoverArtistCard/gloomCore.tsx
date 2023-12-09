@@ -10,9 +10,9 @@ export const gloomCore = () => {
         <div className='w-[472px] h-[256px]'>
             <div className='flex'>
                 <div className='h-[184px] w-[184px] relative'>
-                <NextImage src={gloomImg}/>
+                <NextImage src={gloomImg} alt=""/>
                 <div className="w-12 h-12 bg-gradient-to-b from-zinc-900 to-neutral-800 rounded-full backdrop-blur-[120px] relative bottom-14 left-2">
-                    <NextImage src={heart} className='mx-auto pt-3'/>
+                    <NextImage src={heart} alt=""className='mx-auto pt-3'/>
                 </div>
                 </div>
                 <div className='flex flex-col justify-between'>
@@ -27,19 +27,19 @@ export const gloomCore = () => {
             </div>
             <div className='flex items-center'>
                 <div className='w-[400px] h-[48px] flex mt-2 relative overflow-auto'>
-                <NextImage src={gloomImg} className='h-12 w-12  mr-1'/>
-                <NextImage src={gloomImg} className='h-12 w-12 mx-1'/>
-                <NextImage src={gloomImg} className='h-12 w-12 mx-1'/>
-                <NextImage src={gloomImg} className='h-12 w-12 mx-1'/>
-                <NextImage src={gloomImg} className='h-12 w-12 mx-1'/>
-                <NextImage src={gloomImg} className='h-12 w-12 mx-1'/>
-                <NextImage src={gloomImg} className='h-12 w-12 mx-1'/>
-                <NextImage src={gloomImg} className='h-12 w-12 mx-1'/>
-                <NextImage src={gloomImg} className='h-12 w-12 mx-1'/>
+                <NextImage src={gloomImg} alt=""className='h-12 w-12  mr-1'/>
+                <NextImage src={gloomImg} alt=""className='h-12 w-12 mx-1'/>
+                <NextImage src={gloomImg}alt="" className='h-12 w-12 mx-1'/>
+                <NextImage src={gloomImg} alt=""className='h-12 w-12 mx-1'/>
+                <NextImage src={gloomImg} alt=""className='h-12 w-12 mx-1'/>
+                <NextImage src={gloomImg} alt=""className='h-12 w-12 mx-1'/>
+                <NextImage src={gloomImg} alt=""className='h-12 w-12 mx-1'/>
+                <NextImage src={gloomImg} alt=""className='h-12 w-12 mx-1'/>
+                <NextImage src={gloomImg} alt=""className='h-12 w-12 mx-1'/>
                 
                 </div>
                 <div className="w-12 h-12 bg-gradient-to-b from-zinc-900 to-neutral-800 rounded-full backdrop-blur-[120px]" >
-                    <NextImage src={arrow} className='mx-auto my-4' />
+                    <NextImage src={arrow} alt=""className='mx-auto my-4' />
                 </div>
 
                 </div>

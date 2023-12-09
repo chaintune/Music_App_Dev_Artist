@@ -7,7 +7,7 @@ const NFTTracks = () => {
     <>
         <div className="self-stretch pl-4 pr-6 py-2 bg-zinc-900 bg-opacity-80 rounded-xl justify-start items-center gap-3 inline-flex">
           <div className="w-[21px] opacity-60 text-white text-sm font-normal font-['Aileron'] leading-[18px]">01</div>
-          <NextImage className='w-12 h-12 rounded-lg' src={cover}/>
+          <NextImage className='w-12 h-12 rounded-lg' alt="" src={cover}/>
           <div className="grow shrink basis-0 flex-col justify-start items-start gap-0.5 inline-flex">
             <div className="text-white text-sm font-normal font-['Aileron'] leading-[18px]">Nice For What</div>
             <div className="opacity-60 text-white text-xs font-normal font-['Aileron'] leading-none">Drake</div>

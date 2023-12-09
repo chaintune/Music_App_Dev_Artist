@@ -44,7 +44,7 @@ const SoldItems=()=>{
         <>
         <div className="w-[304px] px-2 pt-2 pb-1 rounded-3xl justify-start items-start flex mr-24">
         
-        <NextImage className='w-32 h-32 rounded backdrop-blur-[120px]' src={cover}/>
+        <NextImage className='w-32 h-32 rounded backdrop-blur-[120px]' alt="" src={cover}/>
         <div className="w-44 h-32 flex-col justify-between items-start inline-flex">
           <div className="h-[78px] px-3 pt-2 flex-col justify-start items-start gap-1 flex">
             <div className=" text-white text-base font-normal font-['Aileron'] leading-normal">Nothing Happens #1</div>
