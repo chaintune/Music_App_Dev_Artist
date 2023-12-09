@@ -1,4 +1,3 @@
-
 import { LayoutProps } from "@/types/Layout";
 import TopTracks from '@/components/topTracksCard/TopTracks'
 import NFTCollection from '@/components/nftCard/NFTCollection'

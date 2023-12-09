@@ -9,8 +9,8 @@ const NFTTracks = () => {
           <div className="w-[21px] opacity-60 text-white text-sm font-normal font-['Aileron'] leading-[18px]">01</div>
           <NextImage className='w-12 h-12 rounded-lg' src={cover}/>
           <div className="grow shrink basis-0 flex-col justify-start items-start gap-0.5 inline-flex">
-            <div className="text-white text-sm font-normal font-['Aileron'] leading-[18px]">Feel It Still</div>
-            <div className="opacity-60 text-white text-xs font-normal font-['Aileron'] leading-none">MGMT, Metronomy</div>
+            <div className="text-white text-sm font-normal font-['Aileron'] leading-[18px]">Nice For What</div>
+            <div className="opacity-60 text-white text-xs font-normal font-['Aileron'] leading-none">Drake</div>
           </div>
           <div className="w-40 opacity-60 text-white text-sm font-normal font-['Aileron'] leading-[18px]">3,601,507</div>
           <div className="w-24 opacity-60 text-white text-sm font-normal font-['Aileron'] leading-[18px]">2 days ago</div>

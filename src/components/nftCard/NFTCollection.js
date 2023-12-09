@@ -11,7 +11,7 @@ import pocket from '../../../assets/pocket.svg'
 const NFTCollection = () => {
   return (
     <>
-    <div className="w-[1012px] h-[758px] relative bg-gradient-to-b from-zinc-900 to-neutral-800 rounded-3xl shadow border border-white border-opacity-5 backdrop-blur-[120px] mx-auto">
+    <div className="w-[1012px] h-[758px] relative bg-gradient-to-b from-zinc-900 to-neutral-800 rounded-3xl shadow border border-white border-opacity-5 backdrop-blur-[120px] mx-auto my-2">
         <div className="w-60 h-[278px] left-[16px] top-[216px] absolute bg-zinc-900 bg-opacity-80 rounded-2xl  backdrop-blur-[120px]">
             <div className="left-[66px] top-[248px] absolute text-center text-white text-sm font-normal font-['Aileron'] leading-snug">28,342 listening now</div>
             <div className="w-5 h-5 left-[42px] top-[248px] absolute" />
@@ -52,6 +52,7 @@ const NFTCollection = () => {
             <div className="w-14 opacity-60 text-right text-white text-sm font-normal font-['Aileron'] leading-[18px]">Duration</div>
             <div className="w-5 opacity-60 text-right text-white text-sm font-normal font-['Aileron'] leading-[18px]"> </div>
             </div>
+            {/* map here */}
             <NFTTrack/>
             <NFTTrack/>
             <NFTTrack/>

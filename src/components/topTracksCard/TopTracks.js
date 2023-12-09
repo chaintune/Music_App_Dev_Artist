@@ -9,7 +9,7 @@ const TopTracks = () => {
 
   return (
     <>
-        <div className="w-[1012px] h-[418px] relative bg-gradient-to-b from-zinc-900 to-neutral-800 rounded-3xl shadow border border-white border-opacity-5 backdrop-blur-[120px] overflow-auto mx-auto">
+        <div className="w-[1012px] h-[418px] relative bg-gradient-to-b from-zinc-900 to-neutral-800 rounded-3xl shadow border border-white border-opacity-5 backdrop-blur-[120px] overflow-auto mx-auto my-2">
             <div className="left-[24px] top-[18px] absolute text-white text-xl font-light font-['Aileron'] leading-7">Top Tracks</div>
             <div className="w-12 h-12 left-[940px] top-[8px] absolute bg-gradient-to-b from-zinc-900 to-neutral-800 rounded-full border border-white border-opacity-5 backdrop-blur-[120px]">
                 <NextImage src={arrow} alt="" className='mx-auto my-4' />
