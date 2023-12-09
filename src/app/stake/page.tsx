@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const Staking_page = () => {
     return (
         <div className="h-screen w-screen bg-zinc-950 flex flex-row">
@@ -13,7 +14,6 @@ const Staking_page = () => {
                     </div>
                 </div>
             </div>
-
             <div className="flex flex-col gap-[1vw] py-[10vw] px-[10vw]">
                 <div className="text-4xl font-['Aileron'] font-light leading-[48px] text-white w-full">
                     ChainTune is currently in limited mode.
