@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 const CommunityCard = () => {
     return (
-        <div className="w-[23vw] h-[16vw] border-solid border-white/6 backdrop-blur-[24px] shadow-[2px_4px_48px_0px_rgba(0,_0,_0,_0.5)] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-col gap-1 items-start pt-2 pb-4 px-2 border rounded-[24px]">
+        <div className="w-[23vw] h-[16vw] backdrop-blur-[24px] shadow-[2px_4px_48px_0px_rgba(0,_0,_0,_0.5)] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-col gap-1 items-start pt-2 pb-4 px-2 rounded-[24px]">
         <div className="flex flex-row justify-between ml-4 w-full items-start">
           <div className="text-xl font-['Aileron'] font-light leading-[28px] text-white mt-2">
             Community Info

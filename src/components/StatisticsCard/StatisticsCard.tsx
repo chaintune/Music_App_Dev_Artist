@@ -17,13 +17,13 @@ const StatisticsCard = () => {
     };
     
     return (
-        <div className="w-[80vw] overflow-x-scroll border-solid border-white/6 backdrop-blur-[24px] shadow-[2px_4px_48px_0px_rgba(0,_0,_0,_0.5)] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-col gap-8 items-start pt-2 pb-6 px-2 border rounded-[24px]">
+        <div className="w-[70vw] mt-[1vw] mx-[2vw] h-[32vw] px-[1vw] overflow-x-scroll  backdrop-blur-[24px] shadow-[2px_4px_48px_0px_rgba(0,_0,_0,_0.5)] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-col gap-8 items-start pt-2 pb-6 rounded-[24px]">
             <div className="flex flex-row gap-[1vw] justify-between w-full items-start">
                 <div className="flex flex-col mt-3 gap-4 w-1/3 items-start">
                     <div className="text-xl font-['Aileron'] font-light leading-[28px] text-white ml-4">
                         At a Glance
                     </div>
-                    <div className="border-solid border-white/8 hover:backdrop-blur-[24px] bg-[rgba(28,_30,_34,_0.8)] flex flex-row gap-4 w-full h-24 items-start pt-4 px-4 border rounded-2xl">
+                    <div className="hover:backdrop-blur-[24px] bg-[rgba(28,_30,_34,_0.8)] flex flex-row gap-4 w-full h-24 items-start pt-4 px-4 rounded-2xl">
                         <div className="border-solid border-white/6 shadow-[0px_4px_32px_0px_rgba(76,_45,_216,_0.5),_-4px_-2px_16px_0px_rgba(75,_80,_182,_0.2)] bg-[linear-gradient(138deg,_#4a6a9b_6%,#4b27dd_98%,#5e14bc_130%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-center pt-5 w-16 h-16 items-start border rounded-[24px]">
                             <img
                                 src="https://file.rendit.io/n/ykgkPgJRuaFuLbbLa7Lk.svg"
@@ -48,7 +48,7 @@ const StatisticsCard = () => {
                     </div>
                 </div>
                 <div className="flex flex-col mt-3 gap-4 w-1/3 pt-[3vw] items-start">
-                    <div className="border-solid border-white/8 hover:backdrop-blur-[24px] bg-[rgba(28,_30,_34,_0.8)] flex flex-row gap-4 w-full h-24 items-start pt-4 px-4 border rounded-2xl">
+                    <div className="hover:backdrop-blur-[24px] bg-[rgba(28,_30,_34,_0.8)] flex flex-row gap-4 w-full h-24 items-start pt-4 px-4 rounded-2xl">
                         <div className="border-solid border-white/6 shadow-[0px_4px_32px_0px_rgba(76,_45,_216,_0.5),_-4px_-2px_16px_0px_rgba(75,_80,_182,_0.2)] bg-[linear-gradient(138deg,_#4a6a9b_6%,#4b27dd_98%,#5e14bc_130%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-center pt-5 w-16 h-16 items-start border rounded-[24px]">
                         <img
                             src="https://file.rendit.io/n/Ihjm0dSCIJd7ww6WKHvv.svg"
@@ -73,7 +73,7 @@ const StatisticsCard = () => {
                     </div>
                 </div>
                 <div className="flex pt-[3vw]  flex-col mt-3 gap-4 w-1/3 items-start">
-                    <div className="border-solid border-white/8 hover:backdrop-blur-[24px] bg-[rgba(28,_30,_34,_0.8)] flex flex-row gap-4 w-full h-24 items-start pt-4 px-4 border rounded-2xl">
+                    <div className="hover:backdrop-blur-[24px] bg-[rgba(28,_30,_34,_0.8)] flex flex-row gap-4 w-full h-24 items-start pt-4 px-4 rounded-2xl">
                         <div className="border-solid border-white/6 shadow-[0px_4px_32px_0px_rgba(76,_45,_216,_0.5),_-4px_-2px_16px_0px_rgba(75,_80,_182,_0.2)] bg-[linear-gradient(138deg,_#4a6a9b_6%,#4b27dd_98%,#5e14bc_130%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-center pt-5 w-16 h-16 items-start border rounded-[24px]">
                         <img
                                 src="https://file.rendit.io/n/4KApO5WNyF4lqr9LPiyL.svg"
@@ -145,7 +145,7 @@ const StatisticsCard = () => {
                                 className="relative w-0 mt-5 mb-px"
                             />
                         </div>
-                        <div className="border-solid border-white/8 backdrop-blur-[24px] bg-[rgba(28,_30,_34,_0.8)] relative flex flex-col mb-40 gap-px w-1/5 h-16 items-start pl-5 py-2 border rounded-lg">
+                        <div className="backdrop-blur-[24px] bg-[rgba(28,_30,_34,_0.8)] relative flex flex-col mb-40 gap-px w-1/5 h-16 items-start pl-5 py-2 rounded-lg">
                             <div className="text-center text-sm font-['Aileron'] leading-[20px] text-white">
                                 16,450 Listeners
                             </div>

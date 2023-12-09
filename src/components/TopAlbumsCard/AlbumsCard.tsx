@@ -16,7 +16,7 @@ const AlbumsCard = () => {
     };
 
     return (
-        <div className="w-[60vw] border-solid overflow-x-scroll border-white/6 backdrop-blur-[24px] shadow-[2px_4px_48px_0px_rgba(0,_0,_0,_0.5)] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-col items-start py-2 border rounded-[24px]">
+        <div className="w-[60vw] h-[19vw] py-[1vw] overflow-x-scroll backdrop-blur-[24px] shadow-[2px_4px_48px_0px_rgba(0,_0,_0,_0.5)] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-col items-start rounded-[24px]">
             {/* Header */}
             <div className="flex flex-row justify-between ml-6 w-full items-start">
                 <div className="text-xl font-['Aileron'] font-light leading-[28px] text-white mt-2">
@@ -26,7 +26,7 @@ const AlbumsCard = () => {
                     {/* Streams Dropdown */}
                     <div
                         onClick={toggleStreamsDropdown}
-                        className="border-solid px-[1vw] border-white/6 backdrop-blur-[24px] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-center pt-3 gap-10 w-3/4 h-12 items-start border rounded-[24px] relative"
+                        className="px-[1vw] border-white/6 backdrop-blur-[24px] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-center pt-3 gap-10 w-3/4 h-12 items-start border rounded-[24px] relative"
                     >
                         <div
                             className="text-sm font-['Aileron'] font-light leading-[20px] text-white cursor-pointer"
@@ -72,7 +72,7 @@ const AlbumsCard = () => {
                         <img
                             src="https://file.rendit.io/n/9g1xOjeJcwAKem8e97VG.png"
                             alt={`Rectangle${index}`}
-                            className="mb-2 border"
+                            className="mb-2"
                         />
                         <div className="flex flex-col mt-2 gap-8 w-1/2 items-start">
                             <div className="text-xl font-['Aileron'] font-light leading-[24px] text-white w-full">

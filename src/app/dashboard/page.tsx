@@ -8,11 +8,15 @@ import AlbumsCard from "@/components/TopAlbumsCard/AlbumsCard";
 const Dashboard = () => {
     return (
         <Layout>
-            <CreateCard />
-            <ManageCard />
-            <CommunityCard />
-            <AlbumsCard />
             <StatisticsCard />
+            <div className="flex flex-row gap-[1vw] mx-[2vw] mt-[1vw]">
+                <CreateCard />
+            </div>
+            <div className="flex flex-row gap-[1vw] mx-[2vw] my-[1vw]">
+                <AlbumsCard />
+                <CommunityCard />
+                <ManageCard />
+            </div>
         </Layout>
     );
 }
