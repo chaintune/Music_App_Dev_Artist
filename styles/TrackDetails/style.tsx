@@ -11,8 +11,6 @@ export const Container = styled.div`
   margin: auto;
 `;
 
-
-
 export const Form = styled.form`
   /* display: grid;
   grid-template-columns: 1fr 2fr;

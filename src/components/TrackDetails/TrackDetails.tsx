@@ -1,3 +1,4 @@
+'use client'
 import React, { useCallback, useState } from 'react';
 import {Container, Form,InputGroupColumn, Input, InputGroup, Label, Select, Button, ToggleSwitch, Slider, Checkbox} from "../../../styles/TrackDetails/style"
 import {DropArea, Instructions, FileInput} from "../../../styles/CoverArt/style"

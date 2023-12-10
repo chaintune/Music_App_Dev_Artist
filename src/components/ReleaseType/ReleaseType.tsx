@@ -1,4 +1,4 @@
-
+'use client'
 import React, { useState } from 'react';
 import {Container, Item, Icon} from "../../../styles/ReleaseType/style"
 import disc from '../../../assets/disc.svg'

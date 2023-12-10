@@ -14,8 +14,6 @@ const mongooseconnect = async () => {
         console.error(err);
         console.log("Failed to connect to MongoDB");
     }
-
-    
 };
 
 export default mongooseconnect;
