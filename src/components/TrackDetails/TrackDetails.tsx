@@ -51,13 +51,25 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
     
 
     const handleRemoveNFT = (id: number) => {
-      // Implement the logic to remove an NFT from the collection
       setNfts(currentNfts => currentNfts.filter(nft => nft.id !== id));
     };
     
     const handleSingleSongSubmit = (event: React.FormEvent) => {
       event.preventDefault();
-      // Handle the form submission
+      setTrackName('');
+      setMusicDescription('');
+      setPrimaryGenre('');
+      setSecondaryGenre('');
+      setPrimaryLanguage('');
+      setfeaturedArtists('');
+      setisrc('');
+      setwrittenBy('');
+      setExplicitLyrics(false);
+      setRadioEdit(false);
+      setMusicCoverFile(null);
+      setSong(null);
+      setSongLink('');
+      setMusicCoverFileLink('');
     };
     
     const handleAlbumSongSubmit = () => {
@@ -95,8 +107,13 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
       setMusicCoverFileLink('');
     };
 
-    const handleAlbumSubmit = (event: React.FormEvent) => {
-      event.preventDefault();
+    const handleAlbumSubmit = () => {
+      setNfts([]);
+      setAlbumName('');
+      setAlbumDescription('');
+      setAlbumCover(null);
+      setAlbumCoverLink('');
+
       
     };
 
@@ -125,7 +142,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
       }, []);
   
     return (
-      <Form onSubmit={handleAlbumSubmit}>
+      <div> 
       {
         (props.selected =="single") ?
       <></>:
@@ -304,6 +321,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
                       <span style={{fontSize:'1.5vw'}}>Contains Explicit Lyrics</span>
                       <SliderContainer>
                       <Checkbox 
+                      checked={explicitLyrics}
                       onChange={e=>setExplicitLyrics(e.target.checked)}
                       type="checkbox" />
                       <Slider />
@@ -360,7 +378,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
 
                       <span style={{fontSize:'1.5vw'}}>Radio Edit</span>
                       <SliderContainer>
-                      <Checkbox type="checkbox" onChange={e=>setRadioEdit(e.target.checked)}/>
+                      <Checkbox type="checkbox" checked={radioEdit} onChange={e=>setRadioEdit(e.target.checked)}/>
                       <Slider />
                       </SliderContainer>
                     </div>
@@ -372,7 +390,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
             <br/>
             {
               (props.selected =="single") ?
-              <div style={{display:'flex',alignItems:'center',justifyContent: 'center'}}><Button type="submit">Publish Track</Button></div>
+              <div style={{display:'flex',alignItems:'center',justifyContent: 'center'}}><Button onClick={handleSingleSongSubmit}>Publish Track</Button></div>
               :
               <div style={{display:'flex',alignItems:'center',justifyContent: 'center'}}><Button onClick={handleAlbumSongSubmit}>+ Add Track</Button></div>
             }
@@ -410,10 +428,10 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
         
         </NFTList>
         <br/>
-        <div style={{display:"flex",justifyContent:"flex-end"}}><Button type="submit">Publish Album</Button></div>
+        <div style={{display:"flex",justifyContent:"flex-end"}}><Button onClick={handleAlbumSubmit}>Publish Album</Button></div>
       </Container>
       }
-      </Form> 
+      </div> 
     );
   };
   
