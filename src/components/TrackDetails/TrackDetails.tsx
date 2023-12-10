@@ -7,11 +7,21 @@ import Image from 'next/image'
 import { ScrollContainer } from '../RevenueCard/style';
 import CoverArt from '../CoverArt/CoverArt';
 
-type NFT = {
+type musicNFT = {
   id: number;
   name: string;
-  description: string;
-  image: any;
+  musicDescription: string;
+  primaryGenre: string;
+  secondaryGenre: string;
+  primaryLanguage: string;
+  featuredArtist: string;
+  isrc: string;
+  writtenBy: string;
+  explicitLyrics: boolean;
+  radioEdit: boolean;
+  musicCoverFileLink: string;
+  songLink: string;
+  
 };
 
 interface TrackDetailsProps{
@@ -21,33 +31,25 @@ interface TrackDetailsProps{
 const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
     const [trackName, setTrackName] = useState('');
     const [albumName, setAlbumName] = useState('');
-    const [description, setDescription] = useState('');
-    const [nfts, setNfts] = useState<NFT[]>([
-      // Pre-populated for example purposes
-      {
-        id: 1,
-        name: 'Nothing Happens #1',
-        description: 'Description of NFT',
-        image: '/testing/dabba.svg',
-      },
-      {
-        id: 2,
-        name: 'Nothing Happens #2',
-        description: 'Description of NFT',
-        image: '/testing/dabba.svg',
-      },{
-        id: 3,
-        name: 'Nothing Happens #3',
-        description: 'Description of NFT',
-        image: '/testing/dabba.svg',
-      },{
-        id: 14,
-        name: 'Nothing Happens #14',
-        description: 'Description of NFT',
-        image: '/testing/dabba.svg',
-      },
-    ]);
+    const [albumDescription, setAlbumDescription] = useState('');
+    const [musicDescription, setMusicDescription] = useState('');
+    const [primaryGenre, setPrimaryGenre] = useState('');
+    const [secondaryGenre, setSecondaryGenre] = useState('');
+    const [primaryLanguage, setPrimaryLanguage] = useState('');
+    const [featuredArtists, setfeaturedArtists] = useState('');
+    const [isrc,setisrc]=useState('');
+    const [writtenBy,setwrittenBy]=useState('');
+    const [explicitLyrics,setExplicitLyrics]=useState<boolean>(false);
+    const [radioEdit,setRadioEdit]=useState<boolean>(false);
+    const [musicCoverFile, setMusicCoverFile] = useState<File | null>(null);
+    const [song, setSong] = useState<File | null>(null);
+    const [albumCoverFile, setAlbumCover] = useState<File | null>(null);
+    const [musicCoverFileLink, setMusicCoverFileLink] = useState('');
+    const [songLink, setSongLink] = useState('');
+    const [albumCoverFileLink, setAlbumCoverLink] = useState('');
+    const [nfts, setNfts] = useState<musicNFT[]>([]);
     
+
     const handleRemoveNFT = (id: number) => {
       // Implement the logic to remove an NFT from the collection
       setNfts(currentNfts => currentNfts.filter(nft => nft.id !== id));
@@ -58,20 +60,62 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
       // Handle the form submission
     };
     
-    const handleAlbumSongSubmit = (event: React.FormEvent) => {
-      event.preventDefault();
-      // Handle the form submission
+    const handleAlbumSongSubmit = () => {
+      const newNFT: musicNFT = {
+        id: nfts.length,
+        name: trackName,
+        musicDescription: musicDescription,
+        primaryGenre: primaryGenre,
+        secondaryGenre: secondaryGenre,
+        primaryLanguage: primaryLanguage,
+        featuredArtist:featuredArtists,
+        isrc:isrc,
+        writtenBy:writtenBy,
+        explicitLyrics:explicitLyrics,
+        radioEdit:radioEdit,
+        musicCoverFileLink:musicCoverFileLink,
+        songLink:songLink,
+
+      };
+
+      setNfts([...nfts, newNFT]);
+      setTrackName('');
+      setMusicDescription('');
+      setPrimaryGenre('');
+      setSecondaryGenre('');
+      setPrimaryLanguage('');
+      setfeaturedArtists('');
+      setisrc('');
+      setwrittenBy('');
+      setExplicitLyrics(false);
+      setRadioEdit(false);
+      setMusicCoverFile(null);
+      setSong(null);
+      setSongLink('');
+      setMusicCoverFileLink('');
     };
 
     const handleAlbumSubmit = (event: React.FormEvent) => {
       event.preventDefault();
-      // Handle the form submission
+      
     };
 
-    const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onFileChange = (e: React.ChangeEvent<HTMLInputElement>, type:string) => {
         if (e.target.files && e.target.files.length > 0) {
-          const file = e.target.files[0];
-          // Handle the file upload...
+          const uploadedFile = e.target.files[0];
+          if (type==="album"){
+            setAlbumCover(uploadedFile);
+            setAlbumCoverLink('https://file.rendit.io/n/9g1xOjeJcwAKem8e97VG.png');
+          }
+          else if(type==="trackCover"){
+
+            setMusicCoverFile(uploadedFile);
+            setMusicCoverFileLink("https://file.rendit.io/n/9g1xOjeJcwAKem8e97VG.png");
+          }
+          else if (type==="track"){
+            setSong(uploadedFile);
+            setSongLink('https://file.rendit.io/n/9g1xOjeJcwAKem8e97VG.png');
+          }
         }
       };
 
@@ -81,7 +125,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
       }, []);
   
     return (
-      <Form>
+      <Form onSubmit={handleAlbumSubmit}>
       {
         (props.selected =="single") ?
       <></>:
@@ -92,24 +136,27 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
         <InputGroup>
         <Label> Album Cover Art</Label>
         <DropArea
-        // isDragActive={isDragActive}
-        // onDragOver={onDragOver}
-        // onDragLeave={onDragLeave}
-        // onDrop={onDrop}
         onClick={onClick}
+        
       >
         <FileInput
           type="file"
           id="fileInput"
           accept=".png,.jpg,.jpeg"
-          onChange={onFileChange}
+          onChange={e=>onFileChange(e,"album")}
         />
         <Image src={upload} alt="" style={{width: '5vw', height: '5vw'}}/>
         <Instructions>
-            
-            <span style={{fontSize:'2.2vh'}}>Browse File or Drag and drop the file here</span>
-            <br />
-            <span style={{opacity:0.6}}>.png and .jpg files with 1:1 aspect ratio up to 10mb are supported. ChainTune recommends 1080px or more for best quality.</span>
+            {
+              (albumCoverFile==null)?
+              <div>      
+                <span style={{fontSize:'2.2vh'}}>Browse File or Drag and drop the file here</span>
+                <br />
+                <span style={{opacity:0.6}}>.png and .jpg files with 1:1 aspect ratio up to 10mb are supported. ChainTune recommends 1080px or more for best quality.</span>
+              </div>
+              :
+              <span style={{fontSize:'2.2vh'}}>File Uploaded Successfully.</span>
+            }
         </Instructions>
       </DropArea>
         </InputGroup>
@@ -126,10 +173,9 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
           <Label htmlFor="description">Description</Label>
           <TextArea
             id="description"
-            value={description}
-            onChange={e => setDescription(e.target.value)}
+            value={albumDescription}
+            onChange={e => setAlbumDescription(e.target.value)}
             placeholder="Enter description here..."
-          //   style={{height:'8vw'}}
           />
           </InputGroup>
       
@@ -140,7 +186,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
 
       <Container>
         <div style={{fontFamily: 'Aileron',fontSize: '2vw',fontWeight: '300',color:'white'}}>Track Details</div>
-        <Form onSubmit={(props.selected =="single") ? handleSingleSongSubmit: handleAlbumSongSubmit}>
+
         <InputGroupColumn style={{gridTemplateColumns:'1fr 2fr'}}>
         
           <InputGroup>
@@ -156,14 +202,21 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
             type="file"
             id="fileInput"
             accept=".png,.jpg,.jpeg"
-            onChange={onFileChange}
+            onChange={e=>onFileChange(e,"trackCover")}
           />
           <Image src={upload} alt="" style={{width: '5vw', height: '5vw'}}/>
           <Instructions>
+              {
+                (musicCoverFile===null)?
+                <div>
+                    <span style={{fontSize:'2.2vh'}}>Browse File or Drag and drop the file here</span>
+                    <br />
+                    <span style={{opacity:0.6}}>.png and .jpg files with 1:1 aspect ratio up to 10mb are supported. ChainTune recommends 1080px or more for best quality.</span>
+                </div>
+              :
+                <span style={{fontSize:'2.2vh'}}>File Uploaded Successfully.</span>
+              }
               
-              <span style={{fontSize:'2.2vh'}}>Browse File or Drag and drop the file here</span>
-              <br />
-              <span style={{opacity:0.6}}>.png and .jpg files with 1:1 aspect ratio up to 10mb are supported. ChainTune recommends 1080px or more for best quality.</span>
           </Instructions>
         </DropArea>
             <Label>Upload Track</Label>
@@ -178,14 +231,20 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
                 type="file"
                 id="fileInput"
                 accept=".png,.jpg,.jpeg"
-                onChange={onFileChange}
+                onChange={e=>onFileChange(e,"track")}
                 />
                 <Image src={upload} alt="" style={{width: '5vw', height: '5vw'}}/>
                 <Instructions>
-                    
-                    <span style={{fontSize:'2.2vh'}}>Browse File or Drag and drop the file here</span>
-                    <br />
-                    <span style={{opacity:0.6}}>.mp3, .wav, .aac files upto 50mb are supported. ChainTune recommends 256 kbps or more for best quality.</span>
+                  {
+                    (song===null)?
+                    <div>
+                      <span style={{fontSize:'2.2vh'}}>Browse File or Drag and drop the file here</span>
+                      <br />
+                      <span style={{opacity:0.6}}>.mp3, .wav, .aac files upto 50mb are supported. ChainTune recommends 256 kbps or more for best quality.</span>
+                    </div>
+                    :
+                    <span style={{fontSize:'2.2vh'}}>File Uploaded Successfully.</span>
+                  }
                 </Instructions>
             </DropArea>
           </InputGroup>
@@ -203,8 +262,8 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
             <Label htmlFor="description">Description</Label>
             <TextArea
               id="description"
-              value={description}
-              onChange={e => setDescription(e.target.value)}
+              value={musicDescription}
+              onChange={e => setMusicDescription(e.target.value)}
               placeholder="Enter description here..."
             />
             </InputGroup>
@@ -213,15 +272,30 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
                     <Label htmlFor="trackName">Primary Genre</Label>
                     <Select
                     id="primaryGenre"
-                    />
+                    onChange={e => setPrimaryGenre(e.target.value)}
+                    >
+                      <option value="pop">Pop</option>
+                      <option value="rock">Rock</option>
+                      <option value="hip-hop-rap">Hip-hop / Rap</option>
+                      <option value="electronic-edm">Electronic / EDM</option>
+                      <option value="country">Country</option>
+                      <option value="jazz">Jazz</option>
+                      <option value="classical">Classical</option>
+                    </Select>
                     <Label htmlFor="trackName">Primary Language</Label>
                     <Select
                     id="primaryLanguage"
-                    />
+                    onChange={e => setPrimaryLanguage(e.target.value)}
+                    >
+                      <option value="english">English</option>
+                      <option value="hindi">Hindi</option>
+                      <option value="korean">Korean</option>
+                    </Select>
                     <Label htmlFor="isrc">ISRC Number (Optional)</Label>
                     <Input
                     id="isrc"
                     type="text"
+                    onChange={e => setisrc(e.target.value)}
                     placeholder="Enter ISRC Number here..."
                     />    
                       <Label>
@@ -229,7 +303,9 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
 
                       <span style={{fontSize:'1.5vw'}}>Contains Explicit Lyrics</span>
                       <SliderContainer>
-                      <Checkbox type="checkbox" />
+                      <Checkbox 
+                      onChange={e=>setExplicitLyrics(e.target.checked)}
+                      type="checkbox" />
                       <Slider />
                       </SliderContainer>
                     </div>
@@ -239,23 +315,52 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
                     <Label htmlFor="trackName">Secondary Genre</Label>
                     <Select
                     id="secondaryGenre"
-                    />
+                    onChange={e=>setSecondaryGenre(e.target.value)}
+                    >
+                       <option value="heavy-metal">Heavy Metal</option>
+                      <option value="death-metal">Death Metal</option>
+                      <option value="smooth-jazz">Smooth Jazz</option>
+                      <option value="funk">Funk</option>
+                      <option value="country-pop">Country Pop</option>
+                      <option value="indie-rock">Indie Rock</option>
+                      <option value="hard-rock">Hard Rock</option>
+                      <option value="pop-rock">Pop Rock</option>
+                    </Select>
                     <Label htmlFor="trackName">Featured Artists (if any)</Label>
                     <Select
                     id="artists"
-                    />
+                    onChange={e=>setfeaturedArtists(e.target.value)}
+                    >
+                      <option value="taylor-swift">Taylor Swift</option>
+                      <option value="ariana-grande">Ariana Grande</option>
+                      <option value="beyonce">Beyoncé</option>
+                      <option value="justin-bieber">Justin Bieber</option>
+                      <option value="ed-sheeran">Ed Sheeran</option>
+                      <option value="the-beatles">The Beatles</option>
+                      <option value="queen">Queen</option>
+                      <option value="led-zeppelin">Led Zeppelin</option>
+                      <option value="coldplay">Coldplay</option>
+                      <option value="foo-fighters">Foo Fighters</option>
+                      <option value="eminem">Eminem</option>
+                      <option value="drake">Drake</option>
+                      <option value="louis-armstrong">Louis Armstrong</option>
+                      <option value="miles-davis">Miles Davis</option>
+                      <option value="ella-fitzgerald">Ella Fitzgerald</option>
+                      <option value="john-coltrane">John Coltrane</option>
+                  </Select>
                     <Label htmlFor="writtenby">Written by (Optional)</Label>
                     <Input
                     id="writtenBy"
                     type="text"
                     placeholder="Enter songwriter's name here..."
+                    onChange={e=>setwrittenBy(e.target.value)}
                     />
                     <Label>
                     <div style={{display:'flex'}}>
 
                       <span style={{fontSize:'1.5vw'}}>Radio Edit</span>
                       <SliderContainer>
-                      <Checkbox type="checkbox" />
+                      <Checkbox type="checkbox" onChange={e=>setRadioEdit(e.target.checked)}/>
                       <Slider />
                       </SliderContainer>
                     </div>
@@ -269,10 +374,10 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
               (props.selected =="single") ?
               <div style={{display:'flex',alignItems:'center',justifyContent: 'center'}}><Button type="submit">Publish Track</Button></div>
               :
-              <div style={{display:'flex',alignItems:'center',justifyContent: 'center'}}><Button type="submit">+ Add Track</Button></div>
+              <div style={{display:'flex',alignItems:'center',justifyContent: 'center'}}><Button onClick={handleAlbumSongSubmit}>+ Add Track</Button></div>
             }
           
-        </Form>
+        
       </Container>
       {
         (props.selected =="single") ? 
@@ -282,11 +387,11 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
       
             {nfts.map(nft => (
                 <div key={nft.id} style={{display:`flex`,flexDirection:`row`,justifyContent:`space-between`,alignItems:`center`,height:`112px`,borderRadius:`16px`,width:`100%`,background: `#26282C66`    ,padding:`8px`,marginTop:`8px`}}>
-                    <img src={nft.image} style={{width:`96px`, height:`96px`}} />
+                    <img src={nft.musicCoverFileLink} style={{width:`96px`, height:`96px`}} />
                     <div style={{display:`flex`,flexDirection:`row`,justifyContent:`space-between`, alignItems:`center`, width:`85%`, margin:`12px`}}>
                     <div>
                             <p className="text-s font-['Aileron'] font-light leading-[12px] text-white w-full">{nft.name}</p>
-                            <p className="text-s font-['Aileron'] font-light leading-[12px] text-white w-full" style={{marginTop:`8px`,opacity:`0.6`}}>{nft.description}</p>
+                            <p className="text-s font-['Aileron'] font-light leading-[12px] text-white w-full" style={{marginTop:`8px`,opacity:`0.6`}}>{nft.musicDescription}</p>
                         </div>
                         <div>
                         <div className="  bg-[linear-gradient(159.05deg, rgba(28, 30, 34, 0.33) 1.89%, rgba(31, 34, 40, 0.5) 89.55%),linear-gradient(163.58deg, rgba(255, 255, 255, 0.06) -2.71%, rgba(255, 255, 255, 0) 102.71%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-between w-full h-12 items-start pt-3 px-4 hover:border rounded-[24px]">
