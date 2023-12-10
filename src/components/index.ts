@@ -8,4 +8,4 @@ export { default as AlbumsCard } from './TopAlbumsCard/AlbumsCard';
 export { default as EarningsCard } from './EarningsCard/EarningsCard';
 export { default as TrackDetails } from './TrackDetails/TrackDetails';
 export { default as CoverArt } from './CoverArt/CoverArt';
-export { default as ReleaseType } from './ReleaseType/ReleaseType';
+export { default as ReleaseOptions } from './ReleaseOptions/ReleaseOptions';
