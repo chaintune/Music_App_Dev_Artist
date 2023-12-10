@@ -33,6 +33,7 @@ export class StakeAmount {
     }
 
     public handleStaking= async () =>{
+      // @ts-ignore
         const wallet = window?.aptos;   
       const response=await wallet.connect();
       const account = await wallet.account();
@@ -71,6 +72,7 @@ export class StakeAmount {
 
     public haveStaked = async () => {
         
+      // @ts-ignore
         const wallet = window?.aptos;   
       const response=await wallet.connect();
       const account = await wallet.account();
