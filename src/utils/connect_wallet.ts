@@ -1,6 +1,13 @@
+
+
 export class WalletManager {
     private isConnected: boolean = false;
     private address :string ="";
+
+    constructor() {
+      this.connectWallet();
+    }
+
     public async connectWallet(): Promise<boolean> {
       try {
         // @ts-ignore
@@ -67,4 +74,5 @@ export class WalletManager {
   //       console.log('Failed to disconnect from the wallet');
   //     }
   //   });
+  
   

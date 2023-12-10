@@ -2,7 +2,7 @@
 'use client'
 
 import { useState } from 'react';
-import { WalletManager } from '../../utils/connect_wallet';
+import { WalletManager } from '@/utils/connect_wallet';
 
 const walletManager = new WalletManager();
 
