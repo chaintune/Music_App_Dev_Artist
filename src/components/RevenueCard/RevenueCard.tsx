@@ -7,6 +7,7 @@ import AlbumRevenueCard from '../AlbumRevenueCard/AlbumRevenueCard';
 import CreateCard from '../CreateReleaseCard/CreateRelease';
 import { CardContainer, Wrap1, Wrap4, Heading, DropdownButton, DropdownContainer, DropdownContent, DropdownItem,DropdownIcon, Options, OptionsWrap, Wrap6 } from './style';
 const options= ["Most Popular", "Most Recent", "Most Streamed"];
+
 const RevenueCard = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);

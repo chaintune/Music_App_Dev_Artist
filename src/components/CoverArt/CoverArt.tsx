@@ -1,3 +1,4 @@
+'use client'
 import React, { useCallback, useState } from 'react';
 import {DropArea, Instructions, FileInput,Container} from "../../../styles/CoverArt/style"
 import Image from 'next/image'

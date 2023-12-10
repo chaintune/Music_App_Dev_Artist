@@ -1,4 +1,4 @@
-
+/* eslint-disable react/jsx-key */
 'use client'
 import React, { useState } from 'react';
 import drop from '../../assets/drop.svg'

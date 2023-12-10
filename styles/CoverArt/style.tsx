@@ -7,8 +7,6 @@ export const Container = styled.div`
   padding: 1vw;
   /* margin-left: 2vh; */
   margin: 5vw 5vh;
-  
-
 `;
 
 export const DropArea = styled.div`

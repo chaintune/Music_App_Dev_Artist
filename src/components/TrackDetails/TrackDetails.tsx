@@ -1,5 +1,8 @@
 'use client'
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 import React, { useCallback, useState } from 'react';
 import {Container, NFTList, TextArea, Form,InputGroupColumn, Input, InputGroup, Label, Select, Button, ToggleSwitch, Slider, SliderContainer, Checkbox} from "../../../styles/TrackDetails/style"
 import {DropArea, Instructions, FileInput} from "../../../styles/CoverArt/style"
