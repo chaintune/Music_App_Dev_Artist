@@ -60,9 +60,6 @@ export async function POST(req: Request) {
       pinataMetadata: {
         name: `${newJsonBody.name}.json`,
       },
-      pinataOptions: {
-        cidVersion: 0,
-      },
     };
 
     const pinataResult = await pinata.pinJSONToIPFS(newJsonBody, options);

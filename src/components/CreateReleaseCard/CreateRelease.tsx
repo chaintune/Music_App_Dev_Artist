@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
+import Link from "next/link";
 
 const CreateCard = (): JSX.Element => {
   return (
@@ -13,7 +14,9 @@ const CreateCard = (): JSX.Element => {
           70% royalties, instant payouts.
         </div>
         <div className="pr-[1vw] w-full">
+        <Link href={'/createRelease'}>
           <div className="hover:border backdrop-blur-[24px] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-between w-full h-12 items-start pt-3 px-4 rounded-[24px]">
+           
             <div className="text-sm font-['Aileron'] leading-[20px] text-white">
               Create Release
             </div>
@@ -23,6 +26,7 @@ const CreateCard = (): JSX.Element => {
               className="mt-1 w-3"
             />
           </div>
+          </Link>
         </div>
       </div>
     </div>
