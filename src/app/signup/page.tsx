@@ -64,7 +64,7 @@ const Signup = () => {
                  console.log(`The new artist is successfully registered`);
                  console.log(response.data);
                  router.push('/dashboard')
-                })
+                })   
             .catch((error) => { console.log(error) });
         } catch (error) {
             console.log(error)

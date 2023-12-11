@@ -119,7 +119,6 @@ const Staking_page = () => {
                     }
                 </div>
             </div>
-
         </div>
     );
 }
