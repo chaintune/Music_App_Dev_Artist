@@ -38,10 +38,10 @@ const StatisticsCard = () => {
                             </div>
                             <div className="flex flex-row gap-1 w-full items-start">
                                 <div className="text-2xl font-['Aileron'] leading-[32px] text-white">
-                                    24,053
+                                    0
                                 </div>
                                 <div className="text-xs font-['Aileron'] leading-[18px] text-[#76d86e] mt-3">
-                                    +2,453
+                                    +0
                                 </div>
                             </div>
                         </div>
@@ -63,10 +63,10 @@ const StatisticsCard = () => {
                             </div>
                             <div className="flex flex-row gap-1 w-full items-start">
                                 <div className="text-2xl font-['Aileron'] leading-[32px] text-white">
-                                    24,053
+                                    0
                                 </div>
                                 <div className="text-xs font-['Aileron'] leading-[18px] text-[#76d86e] mt-3">
-                                    +2,453
+                                    +0
                                 </div>
                             </div>
                         </div>
@@ -88,10 +88,10 @@ const StatisticsCard = () => {
                             </div>
                             <div className="flex flex-row gap-1 w-full items-start">
                                 <div className="text-2xl font-['Aileron'] leading-[32px] text-white">
-                                    24,053
+                                    0
                                 </div>
                                 <div className="text-xs font-['Aileron'] leading-[18px] text-[#76d86e] mt-3">
-                                    +2,453
+                                    +0
                                 </div>
                             </div>
                         </div>
@@ -118,39 +118,13 @@ const StatisticsCard = () => {
                         </div>
                     </div>
                     <div className="relative flex flex-row justify-end w-full items-start pt-1 px-24">
-                        <div
-                            id="Line"
-                            className="border-solid border-r border-white w-px h-56 opacity-20 absolute top-0 left-0"
-                        />
-                        <div
-                            id="Line1"
-                            className="border-solid border-t border-white w-full h-px opacity-20 absolute top-56 left-0"
-                        />
-                        <img
-                            src="https://file.rendit.io/n/OxLfTVWalx1mIUlci0xW.svg"
-                            alt="Vector1"
-                            className="w-[838px] h-[140px] absolute top-16 left-0"
-                        />
-                        <div className="w-full h-40 bg-[url(https://file.rendit.io/n/0pyTge1bkNhafyzqhfZY.svg)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat absolute top-16 left-0 flex flex-row justify-end items-start pt-px px-[108px]">
-                            <img
-                                src="https://file.rendit.io/n/ER53w7yR2oqWO4UcoMSo.svg"
-                                alt="Ellipse1"
-                                id="Ellipse1"
-                                className="w-1 h-1 absolute top-4 left-[727px]"
-                            />
-                            <img
-                                src="https://file.rendit.io/n/XtdKgpmQZMFyrbRAg7MP.png"
-                                alt="Line2"
-                                id="Line2"
-                                className="relative w-0 mt-5 mb-px"
-                            />
-                        </div>
+                        
                         <div className="backdrop-blur-[24px] bg-[rgba(28,_30,_34,_0.8)] relative flex flex-col mb-40 gap-px w-1/5 h-16 items-start pl-5 py-2 rounded-lg">
                             <div className="text-center text-sm font-['Aileron'] leading-[20px] text-white">
-                                16,450 Listeners
+                                0 Listeners
                             </div>
                             <div className="text-center opacity-40 text-sm font-['Aileron'] leading-[20px] text-white ml-6">
-                                Oct 17th
+                                Dec 11th
                             </div>
                         </div>
                     </div>

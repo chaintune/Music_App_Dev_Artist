@@ -5,7 +5,10 @@ import {DropArea, Instructions, FileInput} from "../../../styles/CoverArt/style"
 import upload from '../../../assets/upload.svg'
 import Image from 'next/image'
 import axios from "axios";
+import Confetti from 'react-confetti'
+import { useNavigate } from 'react-router-dom';
 
+import { useWindowSize } from "@uidotdev/usehooks";
 // const wallet
 type musicNFT = {
   id: number;
@@ -29,6 +32,7 @@ interface TrackDetailsProps{
 }
 
 const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
+    // const navigate = useNavigate();
     const [trackName, setTrackName] = useState('');
     const [albumName, setAlbumName] = useState('');
     const [albumDescription, setAlbumDescription] = useState('');
@@ -51,7 +55,8 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
     const [audioCid, setaudioCid] = useState<string | null>(null);
     const [songImageCid, setSongImageCid] = useState<string | null>(null);
     const [albumImageCid, setAlbumImageCid] = useState<string | null>(null);
-    
+    const { width, height } = useWindowSize()
+    const [uploaded,setUploaded] = useState(false);
 
     const handleRemoveNFT = (id: number) => {
       setNfts(currentNfts => currentNfts.filter(nft => nft.id !== id));
@@ -62,6 +67,8 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
       if (song && musicCoverFile) {
         handleUploadToIPFS(song,"SongAudio")
         handleUploadToIPFS(musicCoverFile,"SongImage")
+        alert("Song Uploaded")
+        window.location.replace('http://localhost:3000/manageRelease')
       }
       setTrackName('');
       setMusicDescription('');
@@ -238,13 +245,14 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
         const fileInput = document.getElementById('fileInput2');
         fileInput?.click();
       }, []);
-  
+      
     return (
       <div> 
       {
         (props.selected =="single") ?
       <></>:
       <Container>
+
         <div style={{fontFamily: 'Aileron',fontSize: '2vw',fontWeight: '300',color:'white'}}>Album Description</div>
         <InputGroupColumn style={{gridTemplateColumns:'1fr 2fr'}}>
         
@@ -450,6 +458,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
                       <option value="taylor-swift">Taylor Swift</option>
                       <option value="ariana-grande">Ariana Grande</option>
                       <option value="beyonce">Beyoncé</option>
+                      <option value="miles-davis">John Denver</option>
                       <option value="justin-bieber">Justin Bieber</option>
                       <option value="ed-sheeran">Ed Sheeran</option>
                       <option value="the-beatles">The Beatles</option>
