@@ -75,7 +75,7 @@ const Staking_page = () => {
                         {isConnected ? (walletManager.getAddress()).slice(0,15)+'...':'Wallet'}
                     </div>
                     <button 
-                        className="text-sm font-['Aileron'] font-light leading-[20px] text-white backdrop-blur-[24px] bg-[rgba(38,_40,_44,_0.4)] flex flex-row justify-center pt-3 w-2/5 h-10 items-start rounded-[24px]"
+                        className="text-sm font-['Aileron'] font-light leading-[20px] text-white backdrop-blur-[24px] bg-[rgba(38,_40,_44,_0.4)] flex flex-row justify-center pt-3 px-6 h-10 items-start rounded-[24px]"
                         onClick={handleConnectWallet}                    
                     >
                     {isConnected ? 'Wallet Connected through Petra' : 'Connect Wallet'}

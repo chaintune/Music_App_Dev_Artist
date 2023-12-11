@@ -28,7 +28,7 @@ export const POST = async (req: Request) => {
       earnings: 0,
       plays: 0,
     });
-    console.log(`The artist data the api sending is ${artist}`);
+    console.log(`The artist data the api is sending is ${artist}`);
     return new Response(JSON.stringify(artist), {
       status: 200,
       statusText: "Success",
