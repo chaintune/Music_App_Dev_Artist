@@ -6,8 +6,8 @@ export class StakeAmount {
     private privateKeyBytes = HexString.ensure(this.privateKeyHex).toUint8Array();
     public moduleAddress="0xb1218f0b139e190ff6f7bb194d424ea3b51180eef4de7a4a8ea7cf3c9a571ba0";
     public teamAddress ="0x242c026099140c0d787faf9da562d0aace66700666a4d8fd80dab86756b31660";
-    public streamsThreshold=100;
-    public stakeAmount=1000;
+    public streamsThreshold=1000;
+    public stakeAmount=100000000;
     private isStaked:boolean= false;
     private initializeSponsor = async () =>{
       const aptosClient = new AptosClient('https://fullnode.devnet.aptoslabs.com');

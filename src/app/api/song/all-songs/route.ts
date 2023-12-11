@@ -6,8 +6,7 @@ export const getProjects = async (
   res: NextApiResponse
 ) => {
   try {
-    const songs = res.json(await Song.find().sort({ createdAt: -1 }));
-
+    const songs = res.json(await Song.find({}).sort({ createdAt: -1 }));
     return res.status(200).json(songs);
 
   } catch (err) {

@@ -4,25 +4,25 @@ const artistSchema = new Schema({
     name: {
         type: String,
     },
-    image: {
-        type: String,
-    },
+    // image: {
+    //     type: String,
+    // },
     desc: {
         type: String,
     },
     walletAddress: {
         type: String,
     },
-    date: {
-        type: String,
-    },
+    // date: {
+    //     type: String,
+    // },
     albums: [{
         type: Schema.Types.ObjectId,
         ref: 'Album'
     }],
-    community: {
-        type: String
-    },
+    // community: {
+    //     type: String
+    // },
     earnings: {
         type: Number
     },
@@ -31,4 +31,4 @@ const artistSchema = new Schema({
     }
 })
 
-export const Artist = models.Artist || model("Song", artistSchema)
+export const Artist = models.Artist || model("Artist", artistSchema)
