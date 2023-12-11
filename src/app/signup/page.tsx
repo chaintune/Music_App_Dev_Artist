@@ -30,6 +30,7 @@ const Signup = () => {
 
     const router = useRouter();
     const walletManager = new WalletManager();
+    const ipfsManager = new IPFSManager();
     const [isConnected, setIsConnected] = useState<boolean>(walletManager.isWalletConnected());
 
     const [profileCid, setProfileCid] = useState('');
@@ -116,7 +117,7 @@ const Signup = () => {
         fileInput?.click();
       }, []);
 
-      const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const onFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
 
             setProfileImage(e.target.files[0]);
