@@ -4,7 +4,7 @@ import { NextRequest } from "next/server";
 export const getDiscussions = async (
     req: NextRequest,
 ) => {
-    const song_id = await req.nextUrl.searchParams.get("query");
+    const song_id = req.nextUrl.searchParams.get("query");
 
     try {
         const song = await Song.find({ song_id });

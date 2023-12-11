@@ -1,10 +1,18 @@
 import { Album } from "@/models/album";
 import { Artist } from "@/models/artist";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest } from "next/server";
 
-export const POST = async (req: NextApiRequest, res: NextApiResponse) => {
-    const { name, image, external_url, desc, creator, songs, artists, date, properties , walletAddress} = req.body;
+export const POST = async (req: NextRequest) => {
+    const { name, image, external_url, desc, creator, songs, artists, date, properties , walletAddress} = await req.json();
     
+    if (!name || !image || !external_url || !desc || !creator || !songs || !artists || !date || !properties || !walletAddress) {
+        return new Response(JSON.stringify({ message: "Missing required fields" }),
+            {
+                status: 400,
+                statusText: "Error",
+            }
+        );
+    }
     try {
         const album = await Album.create({
             name,
@@ -25,11 +33,27 @@ export const POST = async (req: NextApiRequest, res: NextApiResponse) => {
         );
 
         if (!artist) {
-            return res.status(404).json({ success: false, error: 'Artist not found' });
+            return new Response(JSON.stringify({ message: "Artist not found" }),    
+                {
+                    status: 400,
+                    statusText: "Error",
+                }
+            );
         }
 
-        res.status(200).json({ success: true, data: album })
+        return new Response(JSON.stringify({ album, artist }),    
+            {
+                status: 200,
+                statusText: "Success",
+            }
+        );
     } catch (error) {
-        res.status(400).json({ success: false, error: error })
+        console.log(error);
+        return new Response(JSON.stringify({ message: "Error fetching album" }),    
+            {
+                status: 400,
+                statusText: "Error",
+            }
+        );
     }
 }

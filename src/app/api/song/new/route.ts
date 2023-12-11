@@ -1,5 +1,4 @@
 import pinataSDK from '@pinata/sdk';
-import { connectToDB } from '@/utils/database';
 const pinata = new pinataSDK({ pinataJWTKey: process.env.NEXT_PUBLIC_JWT });
 import { Song } from '@/models/song';
 import mongooseconnect from '@/lib/mongoose';

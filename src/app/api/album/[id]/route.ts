@@ -1,18 +1,34 @@
 import { Album } from "@/models/album";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest } from "next/server";
 
-export const GET  = async (req: NextApiRequest, res: NextApiResponse) => {
-    const { id } = req.query;
+export const GET  = async (req: NextRequest) => {
+    const id  = req.nextUrl.searchParams.get("query");
 
     try {
         const album = await Album.findById(id).populate('songs').exec();
 
         if (!album) {
-            return res.status(404).json({ success: false, error: 'Album not found' });
+            return new Response(JSON.stringify({ message: "Error fetching album" }),
+                {
+                    status: 400,
+                    statusText: "Error",
+                }
+            );
         }
 
-        res.status(200).json({ success: true, data: album })
+        return new Response(JSON.stringify(album),
+            {
+                status: 200,
+                statusText: "Success",
+            }
+        );
     } catch (error) {
-        res.status(400).json({ success: false, error: error })
+        console.log(error);
+        return new Response(JSON.stringify({ message: "Error fetching album" }),
+            {
+                status: 400,
+                statusText: "Error",
+            }
+        );
     }
 }
