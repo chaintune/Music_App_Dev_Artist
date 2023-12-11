@@ -16,7 +16,10 @@ const artistSchema = new Schema({
     date: {
         type: String,
     },
-    albums: [String],
+    albums: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Album'
+    }],
     community: {
         type: String
     },
