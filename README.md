@@ -1,26 +1,8 @@
 <a name="readme-top"></a>
 
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-  <h3 align="center">Best-README-Template</h3>
-
-  <p align="center">
-    An awesome 
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/chaintune/Music_App_Dev_Artist">View Demo</a>
-    ·
-    <a href="https://github.com/chaintune/Music_App_Dev_Artist/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/chaintune/Music_App_Dev_Artist/issues">Request Feature</a>
-  </p>
+  <h3 align="center">ChainTune</h3>
 </div>
 
 
