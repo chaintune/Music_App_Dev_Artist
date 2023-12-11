@@ -8,10 +8,10 @@ import { useRouter } from 'next/navigation';
 import {DropArea, Instructions, FileInput} from "../../../styles/CoverArt/style"
 import upload from '../../../assets/upload.svg'
 import Image from 'next/image'
+
 import IPFSManager from '../../utils/ipfs_upload';
 import { Network, Provider } from 'aptos';
 import { min } from 'date-fns';
-
 const mintingModuleAddress="0x8e54c6c0e3de38b47f3996de78151ddd6411e0c0687b0405287ee7f1dfbe4d27";
 const provider = new Provider(Network.DEVNET);
 
@@ -30,8 +30,8 @@ const Signup = () => {
 
     const router = useRouter();
     const walletManager = new WalletManager();
-    const ipfsManager = new IPFSManager();
     const [isConnected, setIsConnected] = useState<boolean>(walletManager.isWalletConnected());
+
     const [profileCid, setProfileCid] = useState('');
     const [profileImage, setProfileImage] = useState<File | null>(null);
     const handleConnectWallet = async () => {
@@ -49,7 +49,6 @@ const Signup = () => {
         name: '',
         desc: '',
         walletAddress: walletManager.getAddress(),
-        imageCid:'',
     };
 
     const [state , dispatch] = useReducer(reducer, initialState);
@@ -86,7 +85,7 @@ const Signup = () => {
     const RegisterArtist = async (e:any) => {
 
         e.preventDefault();
-        await mintNFT();
+
         const data = {...state,walletAddress:walletManager.getAddress(), imageCid:profileCid,};
         console.log(data);
         const config = {
@@ -117,8 +116,9 @@ const Signup = () => {
         fileInput?.click();
       }, []);
 
-      const onFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
+
             setProfileImage(e.target.files[0]);
             const imgCid = await ipfsManager.handleUploadToIPFS(e.target.files[0],'Image');
             
