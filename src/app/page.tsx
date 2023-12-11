@@ -3,16 +3,16 @@ import TopTracks from '@/components/topTracksCard/TopTracks'
 import NFTCollection from '@/components/nftCard/NFTCollection'
 import ArtistBar from "@/components/ArtistBar"
 import DiscoverArtist from "@/components/discoverArtistCard/discoverArtist"
+import { Layout } from '@/components'
 
 const Home_page = () => {
   return ( 
-    <div>
-      {/* <ArtistBar/>
+    <Layout>
+      <ArtistBar/>
       <TopTracks/>
       <NFTCollection/>
-      <DiscoverArtist/> */}
-      home page
-    </div>
+      <DiscoverArtist/>
+    </Layout>
    );
 }
  
