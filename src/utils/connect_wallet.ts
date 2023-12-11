@@ -26,6 +26,7 @@ export class WalletManager {
       this.connectedAddress = account.address;
       this.isConnected = true;
       console.log("Wallet connected successfully");
+      this.saveState();
       return true;
     } catch (error) {
       console.error("Error connecting to the wallet:", error);
@@ -42,6 +43,7 @@ export class WalletManager {
       this.isConnected = false;
       this.connectedAddress = "";
       console.log("Wallet disconnected successfully");
+      this.saveState();
       return true;
     } catch (error) {
       console.error("Error disconnecting from the wallet:", error);

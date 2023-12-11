@@ -1,9 +1,5 @@
 import { Schema, model, models } from "mongoose"
 
-const attributesArray = new Schema({
-    
-})
-
 const filesArray = new Schema({
     type: {
         type: String,
@@ -32,9 +28,12 @@ const albumSchema = new Schema({
         type: String,
     },
     creator: {
-        type: String
+        type: String,
     },
-    songs: [String],
+    songs: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Song'
+    }],
     artists: [String],
     date: {
         type: String,
