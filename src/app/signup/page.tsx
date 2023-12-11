@@ -101,10 +101,15 @@ const Signup = () => {
         try {
             await axios.post('http://localhost:3000/api/artist/new', data, config)
             .then(async (response) => { 
-                await mintNFT(response.data._id);
-                 console.log(`The new artist is successfully registered`);
-                 console.log(response.data);
-                 router.push('/dashboard')
+                await mintNFT(response.data._id).then( () => {
+
+                        console.log(`The new artist is successfully registered`);
+                        console.log(response.data);
+                        router.push('/dashboard')
+                
+
+                    })
+                 
                 })   
             .catch((error) => { console.log(error) });
         } catch (error) {
