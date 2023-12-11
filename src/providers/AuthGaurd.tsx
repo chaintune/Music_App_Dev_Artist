@@ -11,11 +11,11 @@ export const AuthenticationGuard = ({
     const pathname = usePathname();
 
     useEffect(() => {
-            if (localStorage.getItem('isStaked') === "true") {
+            if (sessionStorage.getItem('isStaked') === "true") {
                 if (pathname === "/stake") {
                     router.push("/dashboard");
                 }
-            } else if (localStorage.getItem('isStaked') === "false") {
+            } else if (sessionStorage.getItem('isStaked') === "false") {
                 if (pathname !== "/stake") {
                     router.push("/stake");
                 }
@@ -24,8 +24,7 @@ export const AuthenticationGuard = ({
             if (localStorage.getItem('walletConnected') === 'true') {
                 if (pathname === "/signup") {
                     router.push("/dashboard");
-                }
-                
+                } 
             } else if (localStorage.getItem('walletConnected') === 'false') {
                 if (pathname !== "/signup" && pathname !== "/stake") {
                     router.push("/signup");

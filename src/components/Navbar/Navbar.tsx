@@ -1,5 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
+'use client'
+
+import { usePathname } from "next/navigation";
+
 const Navbar = () => {
+
+    const pathname = usePathname();
   
     return (
         <div className="flex bg-zinc-950 py-[1.5vw] px-[1.5vw] fixed z-10 flex-row justify-between w-full items-start">
@@ -15,12 +21,18 @@ const Navbar = () => {
                     />
                 </div>
                 <div className="flex flex-row justify-between w-5/6 items-start">
-                    <div className="opacity-30 text-4xl font-['Aileron'] font-light leading-[48px] text-white">
+                    <a  href="/" className={`text-4xl font-['Aileron'] font-light leading-[48px] text-white ${pathname === '/' ? 'opacity-100' : 'opacity-30'} cursor-pointer`}>
                         Home
-                    </div>
-                    <div className="text-4xl font-['Aileron'] font-light leading-[48px] text-white">
+              
+
+                    </a>
+                    <a href="/createRelease" className={`text-4xl font-['Aileron'] font-light leading-[48px] text-white ${pathname === '/createRelease' ? 'opacity-100' : 'opacity-30'} cursor-pointer`}>
+                        Create
+                    </a>
+                    <a href="/dashboard" className={`text-4xl font-['Aileron'] font-light leading-[48px] text-white ${pathname === '/dashboard' ? 'opacity-100' : 'opacity-30'} cursor-pointer`}>
+
                         Dashboard
-                    </div>
+                    </a>
                     <img
                         src="https://file.rendit.io/n/0qOa1cpotCzSOnIbUhn0.svg"
                         alt="Search"
