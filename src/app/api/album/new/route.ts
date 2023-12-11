@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export const POST = async (req: NextApiRequest, res: NextApiResponse) => {
     const { name, image, external_url, desc, creator, songs, artists, date, properties , walletAddress} = req.body;
-
+    
     try {
         const album = await Album.create({
             name,
