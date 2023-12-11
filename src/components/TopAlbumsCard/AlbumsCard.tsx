@@ -64,7 +64,7 @@ const AlbumsCard = () => {
             </div>
             {/* Scrollable Albums */}
             <div className="flex flex-row overflow-x-scroll scroll-smooth mt-4 pb-4 gap-[2vw]">
-                {Array.from(Array(10).keys()).map((index) => (
+                {Array.from(Array(0).keys()).map((index) => (
                     <div
                         key={index}
                         className="bg-[rgba(28,_30,_34,_0.8)] flex flex-row gap-4 w-[25vw] items-start pt-2 px-2 mx-[1vw] rounded-lg"
@@ -80,10 +80,10 @@ const AlbumsCard = () => {
                             </div>
                             <div className="flex flex-col gap-px w-2/3 items-start">
                                 <div className="text-sm font-['Aileron'] leading-[22px] text-white">
-                                    1,492,520 streams
+                                    0 streams
                                 </div>
                                 <div className="opacity-60 text-sm font-['Aileron'] leading-[22px] text-white">
-                                    +48,595 last week
+                                    +0 last week
                                 </div>
                             </div>
                         </div>

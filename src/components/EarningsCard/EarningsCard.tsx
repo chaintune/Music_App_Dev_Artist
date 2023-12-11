@@ -35,14 +35,14 @@ const EarningsCard = () => {
                     />
                     <div className="flex flex-row gap-1 w-1/6 items-start">
                         <div className="font-['Aileron'] leading-[24px] text-white">
-                            CHT 2,485
+                            CHT 0
                         </div>
                         <div className="text-xs font-['Aileron'] leading-[18px] text-[#76d86e] mt-1">
-                            +25%
+                            +0%
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-row justify-between w-full items-start gap-[1vw]">
+                <div className="flex flex-row justify-center w-full items-start gap-[1vw]">
                     <div className="border-solid border-white/8 backdrop-blur-[24px] bg-[rgba(28,_30,_34,_0.8)] flex flex-row gap-3 w-1/4 items-start pt-2 px-2 hover:border rounded-lg">
                         <div
                             id="Image1"
@@ -53,7 +53,7 @@ const EarningsCard = () => {
                                 NFTs
                             </div>
                             <div className="opacity-60 text-xs font-['Aileron'] leading-[16px] text-white">
-                                CHT 54.492
+                                CHT 0
                             </div>
                         </div>
                     </div>
@@ -67,24 +67,11 @@ const EarningsCard = () => {
                                 Royalties
                             </div>
                             <div className="opacity-60 text-xs font-['Aileron'] leading-[16px] text-white">
-                                CHT 54.492
+                                CHT 0
                             </div>
                         </div>
                     </div>
-                    <div className="border-solid border-white/8 backdrop-blur-[24px] bg-[rgba(28,_30,_34,_0.8)] flex flex-row gap-3 w-1/4 items-start pt-2 px-2 hover:border rounded-lg">
-                        <div
-                            id="Image1"
-                            className="border-solid border-white/6 shadow-[0px_4px_32px_0px_rgba(76,_45,_216,_0.5),_-4px_-2px_16px_0px_rgba(75,_80,_182,_0.2)] bg-[linear-gradient(138deg,_#4a6a9b_6%,#4b27dd_98%,#5e14bc_130%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat mb-2 w-12 h-12 border rounded-[24px]"
-                        />
-                        <div className="flex flex-col mt-1 gap-px w-16 items-start">
-                            <div className="text-sm font-['Aileron'] leading-[18px] text-white">
-                                Donations
-                            </div>
-                            <div className="opacity-60 text-xs font-['Aileron'] leading-[16px] text-white">
-                                CHT 54.492
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
