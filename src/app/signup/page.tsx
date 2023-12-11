@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import {DropArea, Instructions, FileInput} from "../../../styles/CoverArt/style"
 import upload from '../../../assets/upload.svg'
 import Image from 'next/image'
+import IPFSManager from '../../utils/ipfs_upload';
 
 const reducer = (state: any, action: any) => {
     switch (action.type) {
@@ -24,8 +25,10 @@ const Signup = () => {
 
     const router = useRouter();
     const walletManager = new WalletManager();
+    const ipfsManager = new IPFSManager();
     const [isConnected, setIsConnected] = useState<boolean>(walletManager.isWalletConnected());
     const [profileImage, setProfileImage] = useState<File | null>(null);
+    const [profileCid, setProfileCid] = useState<string | null>(null);
     const handleConnectWallet = async () => {
         const connected: boolean = await walletManager.connectWallet();
         if (connected) {
@@ -40,6 +43,7 @@ const Signup = () => {
         name: '',
         desc: '',
         walletAddress: walletManager.getAddress(),
+        imageCid:'',
     };
 
     const [state , dispatch] = useReducer(reducer, initialState);
@@ -47,8 +51,8 @@ const Signup = () => {
     const RegisterArtist = async (e:any) => {
 
         e.preventDefault();
-
-        const data = {...state};
+        
+        const data = {...state, imageCid:profileCid,};
 
         const config = {
             headers: {
@@ -76,9 +80,12 @@ const Signup = () => {
         fileInput?.click();
       }, []);
 
-      const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const onFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
           setProfileImage(e.target.files[0]);
+          const imgCid = await ipfsManager.handleUploadToIPFS(e.target.files[0],'Image');
+          setProfileCid(imgCid);
+          console.log(imgCid);
         }
       };
 

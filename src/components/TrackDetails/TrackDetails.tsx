@@ -59,8 +59,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
       setNfts(currentNfts => currentNfts.filter(nft => nft.id !== id));
     };
     
-    const handleSingleSongSubmit = (event: React.FormEvent) => {
-      event.preventDefault();
+    const handleSingleSongSubmit = () => {
       setTrackName('');
       setMusicDescription('');
       setPrimaryGenre('');
@@ -209,6 +208,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
     };
 
     const onFileChange = (e: React.ChangeEvent<HTMLInputElement>, type:string) => {
+          console.log(type);
         if (e.target.files && e.target.files.length > 0) {
           const uploadedFile = e.target.files[0];
           if (type==="album"){
@@ -221,7 +221,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
             setMusicCoverFileLink("https://file.rendit.io/n/9g1xOjeJcwAKem8e97VG.png");
           }
           else if (type==="track"){
-            setSong(uploadedFile);
+            // setSong(uploadedFile);
             setSongLink('https://file.rendit.io/n/9g1xOjeJcwAKem8e97VG.png');
           }
         }
