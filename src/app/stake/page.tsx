@@ -24,13 +24,14 @@ const Staking_page = () => {
             console.log('Failed to connect to the wallet');
         }
     };
+
     const handleStakeAmount = async () => {
         await stakeAmount.handleStaking();
         const status = await stakeAmount.haveStaked();
         if (status) {
             console.log('Successfully Locked Coins. Redireciting..');
             // setIsStaked(true);
-            // localStorage.setItem('isStaked', 'true');
+            sessionStorage.setItem('isStaked', 'true');
             redirectOnVerification();
         } else {
             console.log('Failed to lock coins.');
@@ -43,12 +44,13 @@ const Staking_page = () => {
         if (status) {
             console.log('Coins are Locked. Redirecting...');
             // setIsStaked(true);
-            // localStorage.setItem('isStaked', 'true');
+            sessionStorage.setItem('isStaked', 'true');
             redirectOnVerification();
         } else {
             console.log('Need to Stake.');
         }
     }
+
     function redirectOnVerification(): void {
         router.push('/dashboard');
     }
