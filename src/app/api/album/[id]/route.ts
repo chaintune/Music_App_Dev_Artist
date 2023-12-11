@@ -5,7 +5,7 @@ export const GET  = async (req: NextApiRequest, res: NextApiResponse) => {
     const { id } = req.query;
 
     try {
-        const album = await Album.findById(id).populate('songs').populate('artists').exec();
+        const album = await Album.findById(id).populate('songs').exec();
 
         if (!album) {
             return res.status(404).json({ success: false, error: 'Album not found' });

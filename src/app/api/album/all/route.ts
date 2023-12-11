@@ -6,7 +6,6 @@ export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const albums = await Album.find({})
       .populate("songs")
-      .populate("artists")
       .exec();
 
     if (!albums) {
