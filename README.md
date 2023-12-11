@@ -126,6 +126,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
+You can also run the app in development mode with Docker, more information in the **[Docker section](#docker)**.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,26 +158,6 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- LICENSE -->
 ## License
 
@@ -194,26 +175,6 @@ Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.c
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -247,38 +208,16 @@ Use this space to list resources you find helpful and would like to give credit 
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
 
-
-## <a name="installation">🔨 Installation</a>
-
-To install this project, you will need to have on your machine :
-
-![NPM](https://img.shields.io/badge/-npm-black?style=for-the-badge&logoColor=white&logo=npm&color=CE0201)
-![Docker](https://img.shields.io/badge/-Docker-black?style=for-the-badge&logoColor=white&logo=docker&color=004EA2)
-
-Then, run the following commands :
-
-```bash
-# Install dependencies and Husky hooks
-npm install
-
-# Run the app in dev mode
-npm run start:dev
-```
-
-The above command will start the app in development mode and watch for changes on local.
-
-You can also run the app in development mode with Docker, more information in the **[Docker section](#docker)**.
-
 ## <a name="build">🚀 Build</a>
 
 In order to build the app for production, run the following command :
 
 ```bash
 # Build the app
-npm run build
+pnpm run build
 
 # Run the app in production mode
-npm run start:prod
+pnpm run start:prod
 ```
 
 You can also run the app in production mode with Docker, more information in the **[Docker section](#docker)**.
@@ -295,13 +234,13 @@ To run the app in development mode with Docker, multiple commands are available 
 
 ```bash
 # Run the app in development mode with Docker
-npm run docker:dev:start
+pnpm run docker:dev:start
 
 # Stop the app in development mode with Docker
-npm run docker:dev:stop
+pnpm run docker:dev:stop
 
 # Reset the app in development mode with Docker (stop, remove image, containers and volumes, then start)
-npm run docker:dev:reset
+pnpm run docker:dev:reset
 ```
 
 When starting the app in development mode with Docker, a container for the API and a container for the MongoDB database are created.
@@ -316,13 +255,13 @@ To run the app in production mode with Docker, multiple commands are available :
 
 ```bash
 # Run the app in production mode with Docker
-npm run docker:production:start
+pnpm run docker:production:start
 
 # Stop the app in production mode with Docker
-npm run docker:production:stop
+pnpm run docker:production:stop
 
 # Reset the app in production mode with Docker (stop, remove image, containers and volumes, then start)
-npm run docker:production:reset
+pnpm run docker:production:reset
 ```
 
 When starting the app in production mode with Docker, a container for the API and a container for the MongoDB database are created.
@@ -331,91 +270,7 @@ Docker compose will use the `production` step of the Dockerfile to build the ima
 
 For more information, please check the **[docker-compose.yml file](https://github.com/antoinezanardi/werewolves-assistant-api-next/blob/main/docker/werewolves-assistant-api-production/docker-compose.yml)**.
 
-### 🧪 Test mode
-
-To run the tests available in this project thanks to Docker, multiple commands are available :
-
-```bash
-# Deploy test containers (4 databases are created to parallelize tests)
-npm run docker:test:start
-
-# Stop test containers
-npm run docker:test:stop
-
-# Reset test containers (stop, remove image, containers and volumes, then start)
-npm run docker:test:reset
-```
-
 For more information, please check the **[docker-compose.yml file](https://github.com/antoinezanardi/werewolves-assistant-api-next/blob/main/docker/werewolves-assistant-api-test/docker-compose.yml)**.
-
-## <a name="tests">💯 Tests</a>
-
-### 🧪 Unit and E2E tests
-
-![Jest](https://img.shields.io/badge/-Jest-black?style=for-the-badge&logoColor=white&logo=jest&color=BF3B14)
-
-[![Tests count](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/tests-count)](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/tests-count)
-
-[![Covered Statements](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/covered-statements)](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/covered-statements)
-
-[![Covered Branches](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/covered-branches)](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/covered-branches)
-
-[![Covered Functions](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/covered-functions)](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/covered-functions)
-
-[![Covered Lines](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/covered-lines)](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/covered-lines)
-
-### 🥒 Acceptance tests
-
-![Cucumber](https://img.shields.io/badge/-Cucumber-black?style=for-the-badge&logoColor=white&logo=cucumber&color=169652) 
-
-[![Scenarios](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/scenarios)](https://byob.yarr.is/antoinezanardi/werewolves-assistant-api-next/scenarios)
-
-Click on the badge below 👇 to see the **[reports](https://reports.cucumber.io/report-collections/9a53c3ab-ff98-43ce-977d-4b6ba9f9ae18)**. 
-
-[![ScenariosReports](https://messages.cucumber.io/api/report-collections/9a53c3ab-ff98-43ce-977d-4b6ba9f9ae18/badge)](https://reports.cucumber.io/report-collections/9a53c3ab-ff98-43ce-977d-4b6ba9f9ae18)
-
-### 👽 Mutant testing
-
-![Stryker](https://img.shields.io/badge/-Stryker-black?style=for-the-badge&logoColor=white&logo=stripe&color=7F1B10) 
-
-[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fantoinezanardi%2Fwerewolves-assistant-api-next%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/antoinezanardi/werewolves-assistant-api-next/main)
-
-You can also check the **[mutation testing report](https://dashboard.stryker-mutator.io/reports/github.com/antoinezanardi/werewolves-assistant-api-next/main#mutant)**.
-
-### ▶️ Commands
-
-Before testing, you must follow the **[installation steps](#installation)**.
-
-Then, run one of the following commands :
-
-```bash
-# Assure you started test Docker containers (4 databases are created to parallelize tests)
-npm run docker:test:start
-
-# Run unit tests with coverage
-npm run test:unit:cov
-
-# Run e2e tests with coverage
-npm run test:e2e:cov
-
-# Run both unit and e2e tests with coverage
-npm run test:cov
-
-# Run both unit and e2e tests only on staged files (run on pre-commit)
-npm run test:staged
-
-# Run acceptance tests
-npm run test:cucumber
-
-# Run acceptance tests and publish the report
-npm run test:cucumber:publish
-
-# Run mutant tests with coverage
-npm run test:stryker
-
-# Run mutant tests with coverage from scratch (without using the incremental file)
-npm run test:stryker:force
-```
 
 ## <a name="env-variables">🌿 Env variables</a>
 
@@ -428,8 +283,6 @@ Environment variables are :
 |        Name         |               Description               | Required | Default value |                   Limitations                    |
 |:-------------------:|:---------------------------------------:|:--------:|:-------------:|:------------------------------------------------:|
 |       `HOST`        | Host on which the API will be available |    ❌     |  `127.0.0.1`  |          If set, can't be empty string           |
-|       `PORT`        | Port on which the API will be available |    ❌     |    `8080`     | If set, must be a number between `0` and `65535` |
-|   `ENVIRONNEMENT`   |  Environment in which the API will run  |    ✅     |       ❌       |  Must be `development`, `production` or `test`   |
 |   `DATABASE_HOST`   |        MongoDB database host URL        |    ✅     |       ❌       |              Can't be empty string               |
 |   `DATABASE_PORT`   |          MongoDB database port          |    ❌     |  `undefined`  | If set, must be a number between `0` and `65535` |
 |   `DATABASE_NAME`   |          MongoDB database name          |    ✅     |       ❌       |              Can't be empty string               |
@@ -443,7 +296,7 @@ Environment variables are :
 
 ![ESLint](https://img.shields.io/badge/-ESLint-black?style=for-the-badge&logoColor=white&logo=eslint&color=341BAB)
 
-In order to keep the code clean, consistent and free of bad TS practices, more than **300 ESLint rules are activated** !
+In order to keep the code clean, consistent and free of bad TS practices, ** ESLint rules are activated**
 
 Complete list of all enabled rules is available in the **[.eslintrc.js file](https://github.com/antoinezanardi/werewolves-assistant-api-next/blob/master/.eslintrc.js)**.
 
@@ -455,13 +308,13 @@ Then, run one of the following commands :
 
 ```bash
 # Lint 
-npm run lint
+pnpm run lint
 
 # Lint and fix
-npm run lint:fix
+pnpm run lint:fix
 
 # Lint and fix only on staged files (runs on pre-commit)
-npm run lint:staged
+pnpm run lint:staged
 ```
 
 ### 🥇 Project quality scanner
@@ -472,29 +325,9 @@ Multiple tools are set up to maintain the best code quality and to prevent vulne
 
 You can check the **[CodeQL analysis report here](https://github.com/antoinezanardi/werewolves-assistant-api-next/security/code-scanning)**.
 
-![SonarCloud](https://img.shields.io/badge/-SonarCloud-black?style=for-the-badge&logoColor=white&logo=sonarcloud&color=F37A3A)
-
-SonarCloud summary is available **[here](https://sonarcloud.io/summary/new_code?id=antoinezanardi_werewolves-assistant-api-next)**.
-
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=antoinezanardi_werewolves-assistant-api-next&metric=coverage)](https://sonarcloud.io/summary/new_code?id=antoinezanardi_werewolves-assistant-api-next)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=antoinezanardi_werewolves-assistant-api-next&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=antoinezanardi_werewolves-assistant-api-next)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=antoinezanardi_werewolves-assistant-api-next&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=antoinezanardi_werewolves-assistant-api-next)
-
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=antoinezanardi_werewolves-assistant-api-next&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=antoinezanardi_werewolves-assistant-api-next)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=antoinezanardi_werewolves-assistant-api-next&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=antoinezanardi_werewolves-assistant-api-next)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=antoinezanardi_werewolves-assistant-api-next&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=antoinezanardi_werewolves-assistant-api-next)
-
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=antoinezanardi_werewolves-assistant-api-next&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=antoinezanardi_werewolves-assistant-api-next)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=antoinezanardi_werewolves-assistant-api-next&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=antoinezanardi_werewolves-assistant-api-next)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=antoinezanardi_werewolves-assistant-api-next&metric=bugs)](https://sonarcloud.io/summary/new_code?id=antoinezanardi_werewolves-assistant-api-next)
-
 ## <a name="versions">📈 Releases & Changelog</a>
 
 Releases on **main** branch are generated and published automatically by :
-
-![Semantic Release](https://img.shields.io/badge/-Semantic%20Release-black?style=for-the-badge&logoColor=white&logo=semantic-release&color=000000)
-
-It uses the **[conventional commit](https://www.conventionalcommits.org/en/v1.0.0/)** strategy.
 
 Each change when a new release comes up is listed in the **<a href="https://github.com/antoinezanardi/werewolves-assistant-api-next/blob/master/CHANGELOG.md" target="_blank">CHANGELOG.md file</a>**.
 
@@ -519,36 +352,39 @@ You can find all the workflows in the **[.github/workflows directory](https://gi
 |         **[🏷️ Release Creation Workflow](https://github.com/antoinezanardi/werewolves-assistant-api-next/actions/workflows/release-creation.yml)**          |           Creates a new release using `semantic-release` with tag and updated changelog<br/><br/>[![🏷️ Release Creation Workflow](https://github.com/antoinezanardi/werewolves-assistant-api-next/actions/workflows/release-creation.yml/badge.svg)](https://github.com/antoinezanardi/werewolves-assistant-api-next/actions/workflows/release-creation.yml)           |                    `push` on `main`                    | 
 |      **[🚀 Deploy To Production Workflow](https://github.com/antoinezanardi/werewolves-assistant-api-next/actions/workflows/deploy-to-production.yml)**      |              Deploys app with last tag version to `Docker Hub` and `GCP`<br/><br/>[![🚀 Deploy To Production Workflow](https://github.com/antoinezanardi/werewolves-assistant-api-next/actions/workflows/deploy-to-production.yml/badge.svg)](https://github.com/antoinezanardi/werewolves-assistant-api-next/actions/workflows/deploy-to-production.yml)               |                     `tag-creation`                     | 
 
-## <a name="misc-commands">✨ Misc commands</a>
-
-### 🌳 Animated tree visualisation of the project's evolution with **[Gource](https://gource.io/)**
-```shell
-# Please ensure that `gource` is installed on your system.
-npm run gource
-```
-
-### 🔀 Create git branch with a conventional name
-```shell
-npm run script:create-branch
-```
-
-### ⤴️ Create pull request against the `develop` branch from current branch
-```shell
-npm run script:create-pull-request
-```
-
-### 📣 To all IntelliJ IDEs users (IntelliJ, Webstorm, PHPStorm, etc.)
-
-All the above commands are available in the **.run directory** at the root of the project. 
-
-You can add them as **run configurations** in your IDE.
 
 ## <a name="license">©️ License</a>
 
 This project is licensed under the [MIT License](http://opensource.org/licenses/MIT).
 
-## <a name="contributors">❤️ Contributors</a>
+<!-- CONTRIBUTING -->
+## Contributing
 
-There is no contributor yet. Want to be the first ?
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you want to contribute to this project, please read the [**contribution guide**](https://github.com/antoinezanardi/werewolves-assistant-api-next/blob/master/CONTRIBUTING.md).
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+
+* [Choose an Open Source License](https://choosealicense.com)
+* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
+* [Malven's Grid Cheatsheet](https://grid.malven.co/)
+* [Img Shields](https://shields.io)
+* [GitHub Pages](https://pages.github.com)
+* [Font Awesome](https://fontawesome.com)
+* [React Icons](https://react-icons.github.io/react-icons/search)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
