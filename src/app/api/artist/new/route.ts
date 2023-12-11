@@ -1,10 +1,12 @@
 import mongooseconnect from "@/lib/mongoose";
 import { Artist } from "@/models/artist";
+import pinataSDK from "@pinata/sdk";
+const pinata = new pinataSDK({ pinataJWTKey: process.env.NEXT_PUBLIC_JWT });
 
 export const POST = async (req: Request) => {
-  const { name, desc, walletAddress } = await req.json();
+  const { name, desc, walletAddress, image } = await req.json();
   const date = new Date().toISOString();
-  
+
   try {
     await mongooseconnect();
 
@@ -18,9 +20,19 @@ export const POST = async (req: Request) => {
       );
     }
 
+    const pinataOptions = {
+      pinataMetadata: {
+        name: `${name}_image`,
+      },
+    };
+
+    const pinataResult = await pinata.pinFileToIPFS(image, pinataOptions);
+
     const artist = await Artist.create({
       name,
-      image : null,
+      image: pinataResult.IpfsHash
+        ? `https://gateway.pinata.cloud/ipfs/${pinataResult.IpfsHash}`
+        : "",
       desc,
       walletAddress,
       date,
