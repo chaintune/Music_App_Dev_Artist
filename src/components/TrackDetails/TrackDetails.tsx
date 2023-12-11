@@ -6,7 +6,9 @@ import upload from '../../../assets/upload.svg'
 import Image from 'next/image'
 import { ScrollContainer } from '../RevenueCard/style';
 import CoverArt from '../CoverArt/CoverArt';
+import axios from "axios";
 
+// const wallet
 type musicNFT = {
   id: number;
   name: string;
@@ -42,12 +44,15 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
     const [explicitLyrics,setExplicitLyrics]=useState<boolean>(false);
     const [radioEdit,setRadioEdit]=useState<boolean>(false);
     const [musicCoverFile, setMusicCoverFile] = useState<File | null>(null);
-    const [song, setSong] = useState<File | null>(null);
+    const [song, setSong] = useState<HTMLAudioElement | null>(null);
     const [albumCoverFile, setAlbumCover] = useState<File | null>(null);
     const [musicCoverFileLink, setMusicCoverFileLink] = useState('');
     const [songLink, setSongLink] = useState('');
     const [albumCoverFileLink, setAlbumCoverLink] = useState('');
     const [nfts, setNfts] = useState<musicNFT[]>([]);
+    const [audioCid, setaudioCid] = useState<string | null>(null);
+    const [songImageCid, setSongImageCid] = useState<string | null>(null);
+    const [albumImageCid, setAlbumImageCid] = useState<string | null>(null);
     
 
     const handleRemoveNFT = (id: number) => {
@@ -115,6 +120,92 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
       setAlbumCoverLink('');
 
       
+    };
+    const createSongData = async () => {
+      if (musicCoverFile === null) {
+        console.error("No image uploaded, error publishing music.");
+        return;
+      }
+      if (song === null) {
+        console.error("No audio uploaded, error publishing music.");
+        return;
+      }
+      const origin = window.location.origin;
+      console.log(origin);
+      const res = await axios.post(
+        `${origin}/api/uploadSong`,
+        {
+          song: trackName,
+          musicDescription: musicDescription,
+          genre: primaryGenre,
+          // artist:
+          license:isrc,
+          imageCid:songImageCid,
+          audioCid:audioCid,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      // .then(function (response) {
+      //   console.log(response.data);
+      // })
+      // .catch(function (error) {
+      //   console.log(error);
+      // });
+      console.log(res.data);
+      setSongCid(res.data);
+    };
+  
+    const handleUploadToIPFS = async (file:File,type:string) => {
+      if (file) {
+        if (type === "SongAudio") {
+          setaudioCid(null);
+        } else if (type === "SongImage") {
+          setSongImageCid(null);
+        } else if (type === "AlbumImage") {
+          setAlbumImageCid(null);
+        }
+        const formData = new FormData();
+        formData.append("file", file);
+  
+        const metadata = JSON.stringify({
+          name: `${file.name}`,
+        });
+        formData.append("pinataMetadata", metadata);
+  
+        const options = JSON.stringify({
+          cidVersion: 0,
+        });
+        formData.append("pinataOptions", options);
+        console.log("Uploading file to IPFS...", formData);
+        try {
+          const resFile = await axios.post(
+            "https://api.pinata.cloud/pinning/pinFileToIPFS",
+            formData,
+            {
+              maxBodyLength: Infinity,
+              headers: {
+                "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_JWT}`,
+              },
+            }
+          );
+  
+          console.log(resFile.data);
+          if (type === "SongAudio") {
+            setaudioCid(resFile.data.IpfsHash);
+          } else if (type === "SongImage") {
+            setSongImageCid(resFile.data.IpfsHash);
+          } else if (type === "AlbumImage") {
+            setAlbumImageCid(resFile.data.IpfsHash);
+          }
+        } catch (error) {
+          console.log("Error: ", error);
+        } 
+      }
     };
 
     const onFileChange = (e: React.ChangeEvent<HTMLInputElement>, type:string) => {
@@ -308,12 +399,12 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
                       <option value="hindi">Hindi</option>
                       <option value="korean">Korean</option>
                     </Select>
-                    <Label htmlFor="isrc">ISRC Number (Optional)</Label>
+                    <Label htmlFor="isrc">Licensed By</Label>
                     <Input
                     id="isrc"
                     type="text"
                     onChange={e => setisrc(e.target.value)}
-                    placeholder="Enter ISRC Number here..."
+                    placeholder="Enter the Licensing body name..."
                     />    
                       <Label>
                     <div style={{display:'flex'}}>
