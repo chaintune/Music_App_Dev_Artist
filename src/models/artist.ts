@@ -31,4 +31,4 @@ const artistSchema = new Schema({
     }
 })
 
-export const Artist = models.Artist || model("Song", artistSchema)
+export const Artist = models.Artist || model("Artist", artistSchema)
