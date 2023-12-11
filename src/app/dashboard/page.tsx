@@ -1,3 +1,4 @@
+'use client'
 import { AlbumsCard, CommunityCard, CreateCard, EarningsCard, Layout, ManageCard, StatisticsCard } from "@/components";
 
 const Dashboard = () => {
