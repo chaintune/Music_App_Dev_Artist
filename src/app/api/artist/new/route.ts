@@ -4,7 +4,7 @@ import pinataSDK from "@pinata/sdk";
 const pinata = new pinataSDK({ pinataJWTKey: process.env.NEXT_PUBLIC_JWT });
 
 export const POST = async (req: Request) => {
-  const { name, desc, walletAddress, image } = await req.json();
+  const { name, desc, walletAddress, imageCid } = await req.json();
   const date = new Date().toISOString();
 
   try {
@@ -19,6 +19,8 @@ export const POST = async (req: Request) => {
         }
       );
     }
+
+    const image = `https://gateway.pinata.cloud/${imageCid}`;
 
     const pinataOptions = {
       pinataMetadata: {
