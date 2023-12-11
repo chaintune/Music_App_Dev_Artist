@@ -1,17 +1,19 @@
 import { Song } from "@/models/song";
-import { NextApiRequest, NextApiResponse } from "next";
 
-export const getProjects = async (
-  req: NextApiRequest,
-  res: NextApiResponse
-) => {
+export const getProjects = async (req: Request) => {
   try {
-    const songs = res.json(await Song.find().sort({ createdAt: -1 }));
+    const songs = await Song.find({});
+    console.log(songs);
 
-    return res.status(200).json(songs);
-
+    return new Response(JSON.stringify(songs), {
+      status: 200,
+      statusText: "Success",
+    });
   } catch (err) {
     console.log(err);
-    return res.status(400).json({ err: "Error in fetching songs" });
+    return new Response(JSON.stringify({ message: "Error fetching songs" }), {
+      status: 400,
+      statusText: "Error",
+    });
   }
 };

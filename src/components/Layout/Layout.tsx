@@ -1,7 +1,7 @@
 
 import { LayoutProps } from "@/types/Layout";
 import { Fragment } from "react";
-import Navbar from "../NavBar/NavBar";
+import Navbar from "../Navbar/Navbar";
 
 const Layout = ({ children }: LayoutProps) => {
     return (

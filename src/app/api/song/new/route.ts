@@ -1,14 +1,13 @@
-import mongoose from 'mongoose';
 import pinataSDK from '@pinata/sdk';
-import { connectToDB } from '@/utils/database';
 const pinata = new pinataSDK({ pinataJWTKey: process.env.NEXT_PUBLIC_JWT });
 import { Song } from '@/models/song';
+import mongooseconnect from '@/lib/mongoose';
 
 export async function POST(req: Request) {
   try {
     const { song, album, creator, imageCid, artist, audioCid, genre,license, language } = await req.json();
     const currentDate = new Date();
-    await connectToDB()
+    await mongooseconnect();
     let newJsonBody = {
       name: song,
       album: album,

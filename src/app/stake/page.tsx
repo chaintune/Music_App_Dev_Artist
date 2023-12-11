@@ -26,8 +26,9 @@ const Staking_page = () => {
         await stakeAmount.handleStaking();
         const status= await stakeAmount.haveStaked();
         if (status) {
-            console.log('Successfully Locked Coins');
+            console.log('Successfully Locked Coins. Redireciting..');
             setIsStaked(true);
+            redirectOnVerification();
         } else {
             console.log('Failed to lock coins.');
         }
@@ -36,11 +37,19 @@ const Staking_page = () => {
     const verifyStakeStatus = async () => {
         const status= await stakeAmount.haveStaked();
         if (status) {
-            console.log('Coins are Locked');
+            console.log('Coins are Locked. Redirecting...');
             setIsStaked(true);
+            redirectOnVerification();
         } else {
             console.log('Need to Stake.');
         }
+    }
+    function redirectOnVerification(): void{
+            const origin = window.location.origin;
+            setTimeout(()=>{
+                window.location.href=`${origin}/dashboard`;
+            }, 5000);
+        
     }
 
     return (
@@ -63,7 +72,7 @@ const Staking_page = () => {
                 </div>
                 <div className="w-[35vw] py-[1vw] pt-[0.7vw] backdrop-blur-[24px] shadow-[2px_4px_48px_0px_rgba(0,_0,_0,_0.5)] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-end gap-12 h-16 items-start px-2 rounded-[24px]">
                     <div className="text-xl font-['Aileron'] font-light leading-[28px] text-white mt-2">
-                        {isConnected ? walletManager.getAddress():'Wallet'}
+                        {isConnected ? (walletManager.getAddress()).slice(0,15)+'...':'Wallet'}
                     </div>
                     <button 
                         className="text-sm font-['Aileron'] font-light leading-[20px] text-white backdrop-blur-[24px] bg-[rgba(38,_40,_44,_0.4)] flex flex-row justify-center pt-3 w-2/5 h-10 items-start rounded-[24px]"
@@ -84,10 +93,10 @@ const Staking_page = () => {
                         </div>
                         <div className="flex flex-col mt-px gap-4 w-5/6 items-start">
                             <div className="font-['Aileron'] font-light leading-[22px] text-white w-full">
-                                Staking of CHT 1,000 is required to become an artist.{" "}
+                                Staking of APT 1 is required to become an artist.{" "}
                             </div>
                             <div className="font-['Aileron'] font-light leading-[22px] text-white w-full">
-                                CHT 1,000 will be returned to you after reaching 10,000 listeners.
+                                APT 1 will be returned to you after reaching 1,000 listeners.
                             </div>
                         </div>
                     </div>
