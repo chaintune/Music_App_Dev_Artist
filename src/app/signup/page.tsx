@@ -9,6 +9,11 @@ import {DropArea, Instructions, FileInput} from "../../../styles/CoverArt/style"
 import upload from '../../../assets/upload.svg'
 import Image from 'next/image'
 import IPFSManager from '../../utils/ipfs_upload';
+import { Network, Provider } from 'aptos';
+import { min } from 'date-fns';
+
+const mintingModuleAddress="0x8e54c6c0e3de38b47f3996de78151ddd6411e0c0687b0405287ee7f1dfbe4d27";
+const provider = new Provider(Network.DEVNET);
 
 const reducer = (state: any, action: any) => {
     switch (action.type) {
@@ -30,6 +35,7 @@ const Signup = () => {
     const [profileCid, setProfileCid] = useState('');
     const [profileImage, setProfileImage] = useState<File | null>(null);
     const handleConnectWallet = async () => {
+        
         const connected: boolean = await walletManager.connectWallet();
         if (connected) {
             console.log('Wallet connected successfully');
@@ -48,12 +54,41 @@ const Signup = () => {
 
     const [state , dispatch] = useReducer(reducer, initialState);
 
+
+    const mintNFT =async(ipfshash:string) =>{
+        try{
+            const wallet = window?.aptos;
+            const response = await wallet.connect();
+            const account = await wallet.account();
+            const textEncoder = new TextEncoder();
+            const payload = {
+                type: "entry_function_payload",
+                function: mintingModuleAddress + "::Marketplace::mint_profile_nft",
+                type_arguments: [],
+                arguments: [textEncoder.encode(state.name), textEncoder.encode(ipfshash), textEncoder.encode(state.desc), textEncoder.encode(profileCid)],
+            };
+            const pendingTransaction = await (
+                window as any
+            ).aptos.signAndSubmitTransaction(payload);
+            console.log(pendingTransaction);
+            console.log(provider);
+            const client = (provider as any).aptosClient;
+            console.log(client);
+            const txn = await client.waitForTransactionWithResult(
+                pendingTransaction.hash
+            );
+                console.log(txn);
+        } catch(error){
+            console.log('Error while minting profile NFT',error);
+        }
+    }
+
     const RegisterArtist = async (e:any) => {
 
         e.preventDefault();
-        
-        const data = {...state, imageCid:profileCid,};
-
+        await mintNFT();
+        const data = {...state,walletAddress:walletManager.getAddress(), imageCid:profileCid,};
+        console.log(data);
         const config = {
             headers: {
                 'Content-Type': 'application/json',
@@ -62,9 +97,11 @@ const Signup = () => {
             },
         };
 
+
         try {
             await axios.post('http://localhost:3000/api/artist/new', data, config)
-            .then((response) => { 
+            .then(async (response) => { 
+                await mintNFT(response.data._id);
                  console.log(`The new artist is successfully registered`);
                  console.log(response.data);
                  router.push('/dashboard')
@@ -82,10 +119,12 @@ const Signup = () => {
 
       const onFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
-          setProfileImage(e.target.files[0]);
-          const imgCid = await ipfsManager.handleUploadToIPFS(e.target.files[0],'Image');
-          setProfileCid(imgCid);
-          console.log(imgCid);
+            setProfileImage(e.target.files[0]);
+            const imgCid = await ipfsManager.handleUploadToIPFS(e.target.files[0],'Image');
+            
+            setProfileCid(imgCid);
+            console.log(imgCid);
+            
         }
       };
 

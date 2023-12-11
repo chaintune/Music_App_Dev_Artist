@@ -18,7 +18,7 @@ export class WalletManager {
     }
     catch (error){
       console.log(error);
-      window.open("https://petra.app/", `_blank`);
+      // window?.open("https://petra.app/", `_blank`);
     }
     
   }
