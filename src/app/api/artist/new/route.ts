@@ -4,7 +4,7 @@ import { Artist } from "@/models/artist";
 export const POST = async (req: Request) => {
   const { name, desc, walletAddress } = await req.json();
   const date = new Date().toISOString();
-
+  
   try {
     await mongooseconnect();
 
