@@ -3,7 +3,8 @@ import { Artist } from "@/models/artist";
 
 export const POST = async (req: Request) => {
   const { name, desc, walletAddress } = await req.json();
-
+  const date = new Date().toISOString();
+  
   try {
     await mongooseconnect();
 
@@ -19,16 +20,16 @@ export const POST = async (req: Request) => {
 
     const artist = await Artist.create({
       name,
-      // image,
+      image : null,
       desc,
       walletAddress,
-      // date,
+      date,
       albums: [],
       // community,
       earnings: 0,
       plays: 0,
     });
-    console.log(`The artist data the api sending is ${artist}`);
+    console.log(`The artist data the api is sending is ${artist}`);
     return new Response(JSON.stringify(artist), {
       status: 200,
       statusText: "Success",
