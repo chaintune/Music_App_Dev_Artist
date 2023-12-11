@@ -44,7 +44,7 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
     const [explicitLyrics,setExplicitLyrics]=useState<boolean>(false);
     const [radioEdit,setRadioEdit]=useState<boolean>(false);
     const [musicCoverFile, setMusicCoverFile] = useState<File | null>(null);
-    const [song, setSong] = useState<HTMLAudioElement | null>(null);
+    const [song, setSong] = useState<HTMLAudioElement|File| null>(null);
     const [albumCoverFile, setAlbumCover] = useState<File | null>(null);
     const [musicCoverFileLink, setMusicCoverFileLink] = useState('');
     const [songLink, setSongLink] = useState('');
@@ -61,6 +61,10 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
     
     const handleSingleSongSubmit = (event: React.FormEvent) => {
       event.preventDefault();
+      if (song && musicCoverFile) {
+        handleUploadToIPFS(song,"SongAudio")
+        handleUploadToIPFS(musicCoverFile,"SongImage")
+      }
       setTrackName('');
       setMusicDescription('');
       setPrimaryGenre('');
@@ -156,10 +160,10 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
       //   console.log(error);
       // });
       console.log(res.data);
-      setSongCid(res.data);
+      // setSongCid(res.data);
     };
   
-    const handleUploadToIPFS = async (file:File,type:string) => {
+    const handleUploadToIPFS = async (file:File | HTMLAudioElement ,type:string) => {
       if (file) {
         if (type === "SongAudio") {
           setaudioCid(null);
@@ -169,10 +173,10 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
           setAlbumImageCid(null);
         }
         const formData = new FormData();
-        formData.append("file", file);
+        formData.append("file", file as Blob);
   
         const metadata = JSON.stringify({
-          name: `${file.name}`,
+          name: `${file.name}`, // eslint-disable-line
         });
         formData.append("pinataMetadata", metadata);
   
@@ -188,7 +192,8 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
             {
               maxBodyLength: Infinity,
               headers: {
-                "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+                // "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+                "Content-Type": `multipart/form-data;`,
                 Authorization: `Bearer ${process.env.NEXT_PUBLIC_JWT}`,
               },
             }
@@ -229,6 +234,10 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
 
       const onClick = useCallback(() => {
         const fileInput = document.getElementById('fileInput');
+        fileInput?.click();
+      }, []);
+      const onClick2 = useCallback(() => {
+        const fileInput = document.getElementById('fileInput2');
         fileInput?.click();
       }, []);
   
@@ -333,12 +342,12 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
                 // onDragOver={onDragOver}
                 // onDragLeave={onDragLeave}
                 // onDrop={onDrop}
-                onClick={onClick}
+                onClick={onClick2}
             >
                 <FileInput
                 type="file"
-                id="fileInput"
-                accept=".png,.jpg,.jpeg"
+                id="fileInput2"
+                accept=".mp3"
                 onChange={e=>onFileChange(e,"track")}
                 />
                 <Image src={upload} alt="" style={{width: '5vw', height: '5vw'}}/>
