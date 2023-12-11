@@ -4,8 +4,6 @@ import {Container, NFTList, TextArea, Form,InputGroupColumn, Input, InputGroup, 
 import {DropArea, Instructions, FileInput} from "../../../styles/CoverArt/style"
 import upload from '../../../assets/upload.svg'
 import Image from 'next/image'
-import { ScrollContainer } from '../RevenueCard/style';
-import CoverArt from '../CoverArt/CoverArt';
 import axios from "axios";
 
 // const wallet
@@ -221,7 +219,6 @@ const TrackDetails: React.FC<TrackDetailsProps> = (props) => {
             setAlbumCoverLink('https://file.rendit.io/n/9g1xOjeJcwAKem8e97VG.png');
           }
           else if(type==="trackCover"){
-
             setMusicCoverFile(uploadedFile);
             setMusicCoverFileLink("https://file.rendit.io/n/9g1xOjeJcwAKem8e97VG.png");
           }
