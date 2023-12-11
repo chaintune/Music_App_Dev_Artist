@@ -8,9 +8,7 @@ export const getDiscussions = async (
     const { id: song_id } = req.query;
 
     try {
-        const song = await Song.find({ song_id }).sort({
-            createdAt: -1,
-        });
+        const song = await Song.find({ song_id });
         console.log(`The song data the api sending is ${song}`);
         return res.status(200).json(song);
     } catch (err) {
