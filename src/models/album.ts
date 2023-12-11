@@ -40,7 +40,8 @@ const albumSchema = new Schema({
     },
     properties: {
         type: propsObj
-    }
+    },
+    
 })
 
 export const Album = models.Album || model("Album", albumSchema)

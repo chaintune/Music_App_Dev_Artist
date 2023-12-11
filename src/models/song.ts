@@ -29,6 +29,12 @@ const songSchema = new Schema({
     name: {
         type: String,
     },
+    album: {
+        type: String,
+    },
+    creator:{
+        type: String,
+    },
     image: {
         type: String,
     },
