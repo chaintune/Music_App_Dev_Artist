@@ -3,6 +3,7 @@ import { Artist } from "@/models/artist";
 
 export const POST = async (req: Request) => {
   const { name, desc, walletAddress } = await req.json();
+  const date = new Date().toISOString();
 
   try {
     await mongooseconnect();
@@ -19,10 +20,10 @@ export const POST = async (req: Request) => {
 
     const artist = await Artist.create({
       name,
-      // image,
+      image : null,
       desc,
       walletAddress,
-      // date,
+      date,
       albums: [],
       // community,
       earnings: 0,
