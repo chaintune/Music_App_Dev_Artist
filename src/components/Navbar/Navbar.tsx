@@ -23,11 +23,14 @@ const Navbar = () => {
                 <div className="flex flex-row justify-between w-5/6 items-start">
                     <a  href="/" className={`text-4xl font-['Aileron'] font-light leading-[48px] text-white ${pathname === '/' ? 'opacity-100' : 'opacity-30'} cursor-pointer`}>
                         Home
+              
+
                     </a>
                     <a href="/createRelease" className={`text-4xl font-['Aileron'] font-light leading-[48px] text-white ${pathname === '/createRelease' ? 'opacity-100' : 'opacity-30'} cursor-pointer`}>
                         Create
                     </a>
                     <a href="/dashboard" className={`text-4xl font-['Aileron'] font-light leading-[48px] text-white ${pathname === '/dashboard' ? 'opacity-100' : 'opacity-30'} cursor-pointer`}>
+
                         Dashboard
                     </a>
                     <img
@@ -39,7 +42,7 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="flex flex-row justify-between w-1/2 items-start">
-                <div className="border-solid border-white/6 backdrop-blur-[24px] shadow-[2px_4px_48px_0px_rgba(0,_0,_0,_0.5)] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-end gap-10 w-1/4 items-start pt-1 px-1 border rounded-[24px]">
+                {/* <div className="border-solid border-white/6 backdrop-blur-[24px] shadow-[2px_4px_48px_0px_rgba(0,_0,_0,_0.5)] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-end gap-10 w-1/4 items-start pt-1 px-1 border rounded-[24px]">
                     <div className="flex flex-row mt-3 gap-2 w-16 items-start">
                         <img
                             src="https://file.rendit.io/n/biEAQlVezNJF0nwE6YQ7.svg"
@@ -48,7 +51,7 @@ const Navbar = () => {
                             className="w-6"
                         />
                         <div className="font-['Aileron'] font-light leading-[24px] text-white">
-                            24.40
+                            0
                         </div>
                     </div>
                     <div
@@ -61,7 +64,7 @@ const Navbar = () => {
                             className="w-3"
                         />
                     </div>
-                </div>
+                </div> */}
                 <div className="border-solid border-white/6 backdrop-blur-[24px] shadow-[2px_4px_48px_0px_rgba(0,_0,_0,_0.5)] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-end gap-10 w-1/4 items-start pt-1 px-1 border rounded-[24px]">
                     <div className="flex flex-row mt-3 gap-2 w-16 items-start">
                         <img
@@ -71,7 +74,7 @@ const Navbar = () => {
                             className="w-6"
                         />
                         <div className="font-['Aileron'] font-light leading-[24px] text-white">
-                            2,485
+                            0
                         </div>
                     </div>
                     <div
@@ -87,7 +90,7 @@ const Navbar = () => {
                 </div>
                 <div className="border-solid border-white/6 backdrop-blur-[24px] shadow-[2px_4px_48px_0px_rgba(0,_0,_0,_0.5)] bg-[linear-gradient(159deg,_rgba(28,_30,_34,_0.33)_-9%,rgba(31,_34,_40,_0.5)_113%)] bg-cover bg-50%_50% bg-blend-normal bg-no-repeat flex flex-row justify-end gap-10 w-2/5 items-start pt-1 px-1 border rounded-[24px]">
                     <div className="opacity-60 font-['Aileron'] font-light leading-[24px] text-white mt-3">
-                        0xdg83tv...
+                        0x22...5940
                     </div>
                     <div className="flex flex-row mb-1 gap-1 w-1/2 items-start">
                         <div className="relative flex flex-row justify-end w-20 items-start">
