@@ -27,7 +27,8 @@ const Signup = () => {
     const walletManager = new WalletManager();
     const ipfsManager = new IPFSManager();
     const [isConnected, setIsConnected] = useState<boolean>(walletManager.isWalletConnected());
-    const [profileCid, setProfileCid] = useState<string | null>(null);
+    const [profileCid, setProfileCid] = useState('');
+    const [profileImage, setProfileImage] = useState<File | null>(null);
     const handleConnectWallet = async () => {
         const connected: boolean = await walletManager.connectWallet();
         if (connected) {

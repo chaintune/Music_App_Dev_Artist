@@ -30,7 +30,7 @@ const Staking_page = () => {
         if (status) {
             console.log('Successfully Locked Coins. Redireciting..');
             // setIsStaked(true);
-            localStorage.setItem('isStaked', 'true');
+            // localStorage.setItem('isStaked', 'true');
             redirectOnVerification();
         } else {
             console.log('Failed to lock coins.');
@@ -39,10 +39,11 @@ const Staking_page = () => {
 
     const verifyStakeStatus = async () => {
         const status = await stakeAmount.haveStaked();
+        console.log(status);
         if (status) {
             console.log('Coins are Locked. Redirecting...');
             // setIsStaked(true);
-            localStorage.setItem('isStaked', 'true');
+            // localStorage.setItem('isStaked', 'true');
             redirectOnVerification();
         } else {
             console.log('Need to Stake.');
