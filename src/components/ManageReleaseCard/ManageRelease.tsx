@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 
 const ManageCard = () => {
     return (
@@ -6,6 +7,7 @@ const ManageCard = () => {
             <div className="text-xl font-['Aileron'] font-light leading-[28px] text-white ml-4">
                 Discography
             </div>
+            <Link href={'/manageRelease'}>
             <div className="bg-[rgba(28,_30,_34,_0.8)] flex flex-col justify-end gap-20 w-full h-[210px] items-start pl-2 py-2 rounded-3xl">
                 <div className="text-2xl font-['Aileron'] leading-[32px] text-white ml-3 w-3/5">
                     Manage your published music
@@ -24,6 +26,7 @@ const ManageCard = () => {
                 </div>
                
             </div>
+            </Link>
         </div>
     );
 }
