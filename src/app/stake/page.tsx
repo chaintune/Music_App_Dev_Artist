@@ -40,6 +40,7 @@ const Staking_page = () => {
 
     const verifyStakeStatus = async () => {
         const status = await stakeAmount.haveStaked();
+        console.log(status);
         if (status) {
             console.log('Coins are Locked. Redirecting...');
             // setIsStaked(true);

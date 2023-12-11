@@ -4,8 +4,8 @@ import pinataSDK from "@pinata/sdk";
 const pinata = new pinataSDK({ pinataJWTKey: process.env.NEXT_PUBLIC_JWT });
 
 export const POST = async (req: Request) => {
-  const { name, desc, walletAddress, imageCid } = await req.json();
-  const date = new Date().toISOString();
+  const { name, desc, walletAddress,imageCid } = await req.json();
+  // const date = new Date().toISOString();
 
   try {
     await mongooseconnect();
@@ -21,23 +21,22 @@ export const POST = async (req: Request) => {
     }
 
     const image = `https://gateway.pinata.cloud/${imageCid}`;
-
-    const pinataOptions = {
-      pinataMetadata: {
-        name: `${name}_image`,
-      },
-    };
-
-    const pinataResult = await pinata.pinFileToIPFS(image, pinataOptions);
+    
+    // const pinataOptions = {
+    //   pinataMetadata: {
+    //     name: `${name}_image`,
+    //   },
+    // };
+    // console.log(image,pinataOptions);
+    // const pinataResult = await pinata.pinFileToIPFS(image, pinataOptions);
 
     const artist = await Artist.create({
       name,
-      image: pinataResult.IpfsHash
-        ? `https://gateway.pinata.cloud/ipfs/${pinataResult.IpfsHash}`
-        : "",
+      image: image,
+      // image:imageCid,
       desc,
       walletAddress,
-      date,
+      // date,
       albums: [],
       // community,
       earnings: 0,
