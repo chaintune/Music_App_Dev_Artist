@@ -4,7 +4,6 @@ import { AlbumsCard, CommunityCard, CreateCard, EarningsCard, Layout, ManageCard
 const Dashboard = () => {
     return (
         <Layout>
-            <StatisticsCard />
             <div className="flex flex-row gap-[1vw]">
                 <CreateCard />
                 <EarningsCard />
