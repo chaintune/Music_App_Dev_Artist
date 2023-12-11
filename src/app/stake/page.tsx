@@ -47,7 +47,7 @@ const Staking_page = () => {
     function redirectOnVerification(): void{
             const origin = window.location.origin;
             setTimeout(()=>{
-                window.location.href=`${origin}/dashboard`;
+                window.location.href=`${origin}/signup`;
             }, 5000);
         
     }

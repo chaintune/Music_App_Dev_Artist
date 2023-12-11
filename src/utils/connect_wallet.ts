@@ -12,8 +12,15 @@ export class WalletManager {
   }
 
   private loadState() {
-    this.isConnected = localStorage.getItem("walletConnected") === "true";
-    this.connectedAddress = localStorage.getItem("connectedAddress");
+    try{
+      this.isConnected = localStorage.getItem("walletConnected") === "true";
+      this.connectedAddress = localStorage.getItem("connectedAddress");
+    }
+    catch (error){
+      console.log(error);
+      window.open("https://petra.app/", `_blank`);
+    }
+    
   }
 
   public async connectWallet(): Promise<boolean> {
